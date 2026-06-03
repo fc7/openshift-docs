@@ -8,7 +8,7 @@
 
 DPDK applications can use `virtio-user` as an exception path to inject certain types of packets, such as log messages, into the kernel for processing. For more information about this feature, see link:https://doc.dpdk.org/guides/howto/virtio_user_as_exception_path.html[Virtio_user as Exception Path].
 
-In OpenShift Container Platform version 4.14 and later, you can use non-privileged pods to run DPDK applications alongside the tap CNI plugin. To enable this functionality, you need to mount the `vhost-net` device by setting the `needVhostNet` parameter to `true` within the `SriovNetworkNodePolicy` object.
+In {product-title} version 4.14 and later, you can use non-privileged pods to run DPDK applications alongside the tap CNI plugin. To enable this functionality, you need to mount the `vhost-net` device by setting the `needVhostNet` parameter to `true` within the `SriovNetworkNodePolicy` object.
 
 .DPDK and TAP example configuration
 image::348_OpenShift_rootless_DPDK_0923.png[DPDK and TAP plugin]

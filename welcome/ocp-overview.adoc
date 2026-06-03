@@ -1,6 +1,6 @@
 :_mod-docs-content-type: ASSEMBLY
 [id="ocp-overview"]
-= Introduction to OpenShift Container Platform
+= Introduction to {product-title}
 
 include::_attributes/common-attributes.adoc[]
 :context: ocp-overview
