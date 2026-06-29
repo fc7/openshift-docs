@@ -7,7 +7,7 @@
 = Creating a cluster with customizations by using {cluster-manager}
 
 [role="_abstract"]
-When you create a {product-title} cluster that uses the AWS Security Token Service (STS), you can customize your installation interactively by using {cluster-manager-first}.
+When you create a {product-title} cluster, you can customize your installation interactively by using {cluster-manager-first}.
 
 [IMPORTANT]
 ====

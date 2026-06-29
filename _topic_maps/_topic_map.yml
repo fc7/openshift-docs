@@ -432,6 +432,8 @@ Topics:
     File: preparing-an-agent-based-installed-cluster-for-mce
   - Name: Installation configuration parameters for the Agent-based Installer
     File: installation-config-parameters-agent
+  - Name: Postinstallation tasks
+    File: agent-based-installer-postinstallation
 - Name: Installing on a single node
   Dir: installing_sno
   Distros: openshift-enterprise,openshift-origin
@@ -462,25 +464,10 @@ Topics:
       File: installing-two-node-fencing
     - Name: Installing a two-node OpenShift cluster with fencing
       File: install-tnf
+    - Name: Operating a degraded two-node OpenShift cluster with fencing
+      File: operating-a-degraded-tnf
     - Name: Post-installation troubleshooting and recovery
       File: install-post-tnf
-- Name: Installing a Two Node OKD Cluster
-  Dir: installing_two_node_cluster
-  Distros: openshift-origin
-  Topics:
-  - Name: Two-Node with Arbiter
-    File: about-two-node-arbiter-installation
-  - Name: Two-node with Fencing
-    Dir: installing_tnf
-    Distros: openshift-origin
-    Topics:
-    - Name: Preparing to install a two-node OKD cluster with fencing
-      File: installing-two-node-fencing
-    - Name: Installing a two-node OKD cluster with fencing
-      File: install-tnf
-    - Name: Post-installation troubleshooting and recovery
-      File: install-post-tnf
-
 - Name: Installing on bare metal
   Dir: installing_bare_metal
   Distros: openshift-origin,openshift-enterprise
@@ -1289,6 +1276,8 @@ Topics:
       File: compliance-operator-supported-profiles
     - Name: Compliance Operator scans
       File: compliance-scans
+    - Name: Propagating custom metadata to ComplianceCheckResult objects
+      File: compliance-operator-checkresult-custom-metadata
     - Name: Tailoring the Compliance Operator
       File: compliance-operator-tailor
     - Name: Retrieving Compliance Operator raw results
@@ -1674,6 +1663,12 @@ Topics:
     Topics:
     - Name: DPU Operator
       File: dpu-operator
+- Name: Network Observability Operator
+  Dir: network_observability_operator
+  Distros: openshift-enterprise,openshift-origin
+  Topics:
+  - Name: Network Observability Operator
+    File: network-observability-operator
 - Name: Network security
   Dir: network_security
   Distros: openshift-enterprise,openshift-origin
@@ -1857,7 +1852,7 @@ Topics:
       File: securing-routes
     - Name: Configuring routes
       File: nw-configuring-routes
-    - Name: Creating advanced routes
+    - Name: Securing routes through ingress objects
       File: creating-advanced-routes
   - Name: Configuring ingress cluster traffic
     Dir: configuring_ingress_cluster_traffic
@@ -1983,6 +1978,12 @@ Topics:
       File: disabling-route-advertisements
     - Name: Example route advertisements setup
       File: example-route-advertisement-setup
+  - Name: BGP EVPN for user-defined networks
+    Dir: bgp_evpn_udn
+    Distros: openshift-enterprise, openshift-origin
+    Topics:
+    - Name: About BGP EVPN for primary cluster user-defined networks
+      File: about-bgp-evpn-user-defined-networks
   - Name: Using PTP hardware
     Dir: ptp
     Distros: openshift-enterprise,openshift-origin
@@ -2546,8 +2547,8 @@ Topics:
   Distros: openshift-origin,openshift-enterprise
 - Name: Deleting applications
   File: odc-deleting-applications
-- Name: Using the Red Hat Marketplace
-  File: red-hat-marketplace
+#- Name: Using the Red Hat Marketplace
+#  File: red-hat-marketplace
   Distros: openshift-origin,openshift-enterprise
 ---
 Name: Serverless
@@ -2746,6 +2747,15 @@ Topics:
     File: etcd-disaster-recovery
 - Name: Enabling etcd encryption
   File: etcd-encrypt
+- Name: External encryption key management
+  Dir: KMS_v2
+  Topics:
+  - Name: About KMS
+    File: index
+  - Name: Configuring KMS
+    File: kms-configuring
+  - Name: Disabling KMS
+    File: kms-disabling
 - Name: Guidance for clusters that span data centers
   File: etcd-guidance-span
 # - Name: Setting up fault-tolerant control planes that span data centers
@@ -2846,6 +2856,8 @@ Topics:
     File: hcp-disaster-recovery-oadp
   - Name: Automated disaster recovery for a hosted cluster by using OADP
     File: hcp-disaster-recovery-oadp-auto
+  - Name: Backing up etcd data for hosted control planes by using the etcd snapshot method
+    File: hcp-backup-etcd-snapshot
 - Name: Authentication and authorization for hosted control planes
   File: hcp-authentication-authorization
 - Name: Handling machine configuration for hosted control planes
@@ -3401,6 +3413,8 @@ Topics:
     File: network-observability-overview
   - Name: Installing the Network Observability Operator
     File: installing-operators
+  - Name: Scaling network flow collection with Kafka
+    File: network-observability-kafka-operator-scaling-network-flow-collection
   - Name: Understanding Network Observability Operator
     File: understanding-network-observability-operator
   - Name: Configuring the Network Observability Operator
@@ -3415,6 +3429,8 @@ Topics:
     File: observing-network-traffic
   - Name: Network observability health rules
     File: network-observability-health-rules
+  - Name: Monitoring TLS traffic
+    File: network-observability-monitoring-tls-traffic
   - Name: Using metrics with dashboards and alerts
     File: metrics-alerts-dashboards
   - Name: Monitoring the Network Observability Operator
@@ -3704,6 +3720,16 @@ Topics:
       File: ibi-edge-image-based-install
     - Name: Deploying single-node clusters using the installation program
       File: ibi-edge-image-based-install-standalone
+- Name: Network reconfiguration for single-node OpenShift
+  Dir: sno_ip_configuration
+  Distros: openshift-origin,openshift-enterprise
+  Topics:
+  - Name: Understand single-node OpenShift network reconfiguration
+    File: cnf-understanding-sno-ip-configuration
+  - Name: Perform single-node OpenShift network reconfiguration
+    File: cnf-configuring-sno-ip-configuration
+  - Name: Troubleshoot single-node OpenShift network reconfiguration
+    File: cnf-troubleshooting-sno-ip-configuration
 ---
 Name: Specialized hardware and driver enablement
 Dir: hardware_enablement
@@ -3734,8 +3760,6 @@ Topics:
   File: gaudi-ai-accelerator
 - Name: Remote Direct Memory Access (RDMA)
   File: rdma-remote-direct-memory-access
-- Name: Dynamic Accelerator Slicer (DAS) Operator
-  File: das-about-dynamic-accelerator-slicer-operator
 ---
 Name: Backup and restore
 Dir: backup_and_restore
@@ -3757,10 +3781,10 @@ Topics:
   - Name: OADP release notes
     Dir: release-notes
     Topics:
-    - Name: OADP 1.5 release notes
-      File: oadp-1-5-release-notes
-    - Name: Upgrading OADP 1.4 to 1.5
-      File: oadp-upgrade-notes-1-5
+    - Name: OADP 1.6 release notes
+      File: oadp-1-6-release-notes
+    - Name: Upgrading OADP 1.5 to 1.6
+      File: oadp-upgrade-notes-1-6
   - Name: OADP performance
     Dir: oadp-performance
     Topics:
@@ -3852,6 +3876,10 @@ Topics:
       File: backing-up-applications
     - Name: Creating a Backup CR
       File: oadp-creating-backup-cr
+    - Name: Parallel backup processing in OADP
+      File: oadp-parallel-backup-processing-in-oadp
+    - Name: Enabling parallel backup processing
+      File: oadp-enabling-parallel-backup-processing
     - Name: Backing up persistent volumes with CSI snapshots
       File: oadp-backing-up-pvs-csi-doc
     - Name: Backing up applications with File System Backup
@@ -3880,6 +3908,22 @@ Topics:
       File: oadp-self-service-namespace-admin-use-cases
     - Name: OADP Self-Service troubleshooting
       File: oadp-self-service-troubleshooting
+  - Name: OADP VMFR
+    Dir: oadp-vmfr
+    Topics:
+    - Name: OADP VMFR
+      File: oadp-vmfr
+    - Name: Using OADP VMFR
+      File: oadp-using-vmfr
+    - Name: OADP VMFR end-to-end workflow
+      File: oadp-vmfr-end-to-end
+  - Name: OADP VMDP
+    Dir: oadp-vmdp
+    Topics:
+    - Name: OADP VMDP
+      File: oadp-vmdp
+    - Name: Using OADP VMDP
+      File: oadp-using-vmdp
   - Name: OADP and ROSA
     Dir: oadp-rosa
     Topics:
@@ -4914,8 +4958,17 @@ Topics:
     File: virt-update-virtio-drivers
   - Name: Connecting to VM consoles
     File: virt-accessing-vm-consoles
-  - Name: Configuring SSH access to VMs
-    File: virt-accessing-vm-ssh
+  - Name: SSH access
+    Dir: ssh
+    Topics:
+    - Name: SSH access for virtual machines
+      File: virt-accessing-vm-ssh
+    - Name: Configure SSH with the virtctl CLI tool
+      File: virt-using-virtctl-ssh
+    - Name: Use a secondary network for SSH access
+      File: virt-using-secondary-networks-ssh
+    - Name: Create a service to connect with SSH
+      File: virt-using-services
   - Name: Customize the web console
     File: virt-customize-web-console
   - Name: Editing virtual machines
@@ -5022,6 +5075,8 @@ Topics:
     File: virt-connecting-vm-to-ovn-secondary-network
   - Name: Hot plugging secondary network interfaces
     File: virt-hot-plugging-network-interfaces
+  - Name: Hot swapping a virtual machine secondary network
+    File: virt-hot-swap-vm-secondary-network
   - Name: Setting VM interface link state
     File: virt-setting-interface-link-state
   - Name: Connecting a VM to a service mesh
@@ -5136,3 +5191,15 @@ Topics:
 #  - Name: Collecting OKD Virtualization data for community report
 #    File: virt-collecting-virt-data
 #    Distros: openshift-origin
+---
+Name: AI applications
+Dir: ai_applications
+Distros: openshift-enterprise,openshift-origin,openshift-online
+Topics:
+- Name: MCP server
+  Dir: mcp_server
+  Distros: openshift-enterprise,openshift-origin
+  Topics:
+    - Name: MCP server overview
+      File: mcp-server-overview
+      Distros: openshift-enterprise,openshift-origin

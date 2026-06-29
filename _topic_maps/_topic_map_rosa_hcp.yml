@@ -458,6 +458,7 @@ Topics:
   File: rosa-cluster-autoscaling-hcp
 - Name: Managing compute nodes using machine pools
   Dir: rosa_nodes
+  Distro: openshift-rosa-hcp
   Topics:
   - Name: About machine pools
     File: rosa-nodes-machinepools-about
@@ -470,6 +471,8 @@ Topics:
     File: rosa-nodes-about-autoscaling-nodes
   - Name: Configuring cluster memory to meet container memory and risk requirements
     File: nodes-cluster-resource-configure
+- Name: Managing compute nodes using Red Hat build of Karpenter
+  File: rosa-nodes-managing-karpenter
 - Name: Configuring PID limits
   File: rosa-configuring-pid-limits
 - Name: Managing multi-architecture clusters
@@ -901,8 +904,10 @@ Topics:
   - Name: OADP release notes
     Dir: release-notes
     Topics:
-    - Name: OADP 1.5 release notes
-      File: oadp-1-5-release-notes
+    - Name: OADP 1.6 release notes
+      File: oadp-1-6-release-notes
+    - Name: Upgrading OADP 1.5 to 1.6
+      File: oadp-upgrade-notes-1-6
   - Name: OADP performance
     Dir: oadp-performance
     Topics:
@@ -939,6 +944,10 @@ Topics:
       File: backing-up-applications
     - Name: Creating a Backup CR
       File: oadp-creating-backup-cr
+    - Name: Parallel backup processing in OADP
+      File: oadp-parallel-backup-processing-in-oadp
+    - Name: Enabling parallel backup processing
+      File: oadp-enabling-parallel-backup-processing
 # ROSA docs do not include CSI snapshots
 #    - Name: Backing up persistent volumes with CSI snapshots
 #      File: oadp-backing-up-pvs-csi-doc
@@ -1073,7 +1082,7 @@ Topics:
         File: securing-routes
       - Name: Configuring Routes
         File: nw-configuring-routes
-      - Name: Creating advanced Routes
+      - Name: Securing routes through ingress objects
         File: creating-advanced-routes
 ---
 Name: Nodes
@@ -1643,8 +1652,17 @@ Topics:
     File: virt-update-virtio-drivers
   - Name: Connecting to VM consoles
     File: virt-accessing-vm-consoles
-  - Name: Configuring SSH access to VMs
-    File: virt-accessing-vm-ssh
+  - Name: SSH access
+    Dir: ssh
+    Topics:
+    - Name: SSH access for virtual machines
+      File: virt-accessing-vm-ssh
+    - Name: Configure SSH with the virtctl CLI tool
+      File: virt-using-virtctl-ssh
+    - Name: Use a secondary network for SSH access
+      File: virt-using-secondary-networks-ssh
+    - Name: Create a service to connect with SSH
+      File: virt-using-services
   - Name: Editing virtual machines
     File: virt-edit-vms
   - Name: Editing boot order

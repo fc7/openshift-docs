@@ -1,12 +1,13 @@
 :_mod-docs-content-type: ASSEMBLY
-[id="hcp-deploy-ibm-power"]
 include::_attributes/common-attributes.adoc[]
+[id="hcp-deploy-ibm-power"]
 = Deploying {hcp} on {ibm-power-title}
 :context: hcp-deploy-ibm-power
 
 toc::[]
 
-You can deploy {hcp} by configuring a cluster to function as a hosting cluster. This configuration provides an efficient and scalable solution for managing many clusters. The hosting cluster is an {product-title} cluster that hosts control planes. The hosting cluster is also known as the _management_ cluster.
+[role="_abstract"]
+You can deploy {hcp} on {ibm-power-title} by configuring a cluster to function as a hosting cluster. This configuration provides an efficient and scalable solution for managing many clusters. The hosting cluster is an {product-title} cluster that hosts control planes. The hosting cluster is also known as the _management_ cluster.
 
 [NOTE]
 ====
@@ -31,7 +32,7 @@ include::modules/hcp-ibm-power-prereqs.adoc[leveloffset=+1]
 * link:https://docs.redhat.com/en/documentation/red_hat_advanced_cluster_management_for_kubernetes/2.16/html/clusters/cluster_mce_overview#enable-cim[Enabling the central infrastructure management service]
 * xref:../../hosted_control_planes/hcp-prepare/hcp-cli.adoc#hcp-cli-terminal_hcp-cli[Installing the hosted control plane command-line interface]
 * xref:../../hosted_control_planes/hcp-prepare/hcp-enable-disable.adoc#hcp-enable-manual_hcp-enable-disable[Manually enabling the {hcp} feature]
-* xref:../../hosted_control_planes/hcp-prepare/hcp-enable-disable.adoc#hcp-disable_hcp-enable-disable[Disabling the {hcp} feature]
+* xref:../../hosted_control_planes/hcp-prepare/hcp-enable-disable.adoc#hcp-disable-feature_hcp-enable-disable[Disabling the {hcp} feature]
 
 // IBM Power infrastructure requirements
 include::modules/hcp-ibm-power-infra-reqs.adoc[leveloffset=+1]
@@ -48,7 +49,7 @@ include::modules/hcp-bm-hc.adoc[leveloffset=+1]
 [role="_additional-resources"]
 .Additional resources
 
-* xref:../../hosted_control_planes/hcp-prepare/hcp-requirements.adoc[Requirements for hosted control planes]
+* xref:../../hosted_control_planes/hcp-prepare/hcp-requirements.adoc#hcp-requirements[Requirements for hosted control planes]
 * xref:../../hosted_control_planes/hcp-deploy/hcp-deploy-bm.adoc#hcp-bm-dns_hcp-deploy-bm[DNS configurations on bare metal]
 * xref:../../hosted_control_planes/hcp-import.adoc[Manually importing a hosted cluster]
 * xref:../../hosted_control_planes/hcp-disconnected/hcp-deploy-dc-bm.adoc#hcp-dc-extract_hcp-deploy-dc-bm[Extracting the release image digest]
@@ -61,6 +62,11 @@ include::modules/hcp-ibm-power-create-heterogeneous-nodepools-agent-hc.adoc[leve
 
 // Create an agent cluster
 include::modules/hcp-ibm-power-heterogeneous-nodepools-create-agent-cluster.adoc[leveloffset=+2]
+
+[role="_additional-resources"]
+.Additional resources
+
+* link:https://multi.ocp.releases.ci.openshift.org/[Multi-arch release images]
 
 // Creating heterogeneous node pools
 include::modules/hcp-create-heterogeneous-nodepools.adoc[leveloffset=+2]

@@ -85,8 +85,6 @@ Name: Tutorials
 Dir: cloud_experts_osd_tutorials
 Distros: openshift-dedicated
 Topics:
-- Name: Tutorials overview
-  File: osd_index
 - Name: Updating component routes with custom domains and TLS certificates
   File: cloud-experts-osd-update-component-routes
 - Name: Limit egress with Google Cloud Next Generation Firewall
@@ -791,7 +789,7 @@ Topics:
         File: securing-routes
       - Name: Configuring Routes
         File: nw-configuring-routes
-      - Name: Creating advanced Routes
+      - Name: Securing routes through ingress objects
         File: creating-advanced-routes
 ---
 Name: Building applications
@@ -1490,8 +1488,6 @@ Topics:
     File: virt-update-virtio-drivers
   - Name: Connecting to VM consoles
     File: virt-accessing-vm-consoles
-#  - Name: Configuring SSH access to VMs
-#    File: virt-accessing-vm-ssh
   - Name: Editing virtual machines
     File: virt-edit-vms
   - Name: Editing boot order
