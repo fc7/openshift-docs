@@ -6,7 +6,8 @@ include::_attributes/attributes-microshift.adoc[]
 
 toc::[]
 
-Managing storage is a distinct problem from managing compute resources. {microshift-short} uses the Kubernetes persistent volume (PV) framework to allow node administrators to provision persistent storage for a node. Developers can use persistent volume claims (PVCs) to request PV resources without having specific knowledge of the underlying storage infrastructure.
+[role="_abstract"]
+{microshift-short} uses the Kubernetes persistent volume (PV) framework to allow node administrators to provision persistent storage for a node. Administrators provision persistent volumes (PVs), and developers create persistent volume claims (PVCs) to request storage without infrastructure knowledge.
 
 include::modules/microshift-control-permissions-security-context-constraints.adoc[leveloffset=+1]
 
@@ -58,4 +59,4 @@ include::modules/pvc-cli-command-usage.adoc[leveloffset=+2]
 
 include::modules/viewing-pvc-usage-statistics.adoc[leveloffset=+2]
 
-include::modules/storage-persistent-storage-fsGroup.adoc[leveloffset=+1]
+include::modules/storage-persistent-storage-fsgroup.adoc[leveloffset=+1]

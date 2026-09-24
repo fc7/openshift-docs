@@ -62,6 +62,9 @@ Topics:
 - Name: About IAM resources
   File: rosa-sts-about-iam-resources
   Distros: openshift-rosa-hcp
+- Name: Configure ROSA account roles with an AWS STS external ID
+  File: rosa-account-roles-aws-sts-external-id
+  Distros: openshift-rosa-hcp
 ---
 Name: Learning about ROSA
 Dir: rosa_learning
@@ -175,6 +178,8 @@ Topics:
   File: rosa-govcloud-account-management
 - Name: Installing a Red Hat OpenShift Service on AWS cluster in AWS GovCloud
   File: rosa-install-govcloud-cluster
+- Name: Red Hat OpenShift Service on AWS FedRAMP Rev5 Secure Configuration Guidance
+  File: rosa-fedramp-security-config
 ---
 Name: Install clusters
 Dir: rosa_hcp
@@ -190,6 +195,8 @@ Topics:
   Topics:
   - Name: Creating a default Red Hat OpenShift Service on AWS cluster with Terraform
     File: rosa-hcp-creating-a-cluster-quickly-terraform
+  - Name: Configuring AWS Spot instances for Red Hat OpenShift Service on AWS with Terraform
+    File: rosa-hcp-config-aws-spot-instances-terraform
 - Name: Creating ROSA clusters using a custom AWS KMS encryption key
   File: rosa-hcp-creating-cluster-with-aws-kms-key
 - Name: Deploying Red Hat OpenShift Service on AWS clusters using FIPS encryption
@@ -202,6 +209,8 @@ Topics:
   File: rosa-hcp-egress-zero-install
 - Name: Creating a ROSA cluster that uses direct authentication with an external OIDC identity provider
   File: rosa-hcp-sts-creating-a-cluster-ext-auth
+- Name: Configuring AWS Spot instances for Red Hat OpenShift Service on AWS clusters using the CLI
+  File: rosa-hcp-config-aws-spot-instances-cli
 - Name: Creating ROSA clusters without a CNI plugin
   File: rosa-hcp-cluster-no-cni
 - Name: Deleting a ROSA cluster
@@ -401,6 +410,8 @@ Topics:
     File: rosa-troubleshooting-networking
   - Name: Verifying node health
     File: verifying-node-health
+  - Name: Troubleshooting Red Hat build of Karpenter
+    File: rosa-troubleshooting-autonode
 #  cannot create resource "namespaces", cannot patch resource "nodes"
 #  - Name: Troubleshooting CRI-O container runtime issues
 #    File: troubleshooting-crio-issues
@@ -472,7 +483,18 @@ Topics:
   - Name: Configuring cluster memory to meet container memory and risk requirements
     File: nodes-cluster-resource-configure
 - Name: Managing compute nodes using Red Hat build of Karpenter
-  File: rosa-nodes-managing-karpenter
+  Dir: autonode
+  Topics:
+  - Name: About Red Hat build of Karpenter
+    File: rosa-autonode-about
+  - Name: Set up Red Hat build of Karpenter
+    File: rosa-autonode-setup
+  - Name: Manage AutoNode node pools
+    File: rosa-autonode-nodepools
+  - Name: Manage OpenShiftEC2NodeClass resources
+    File: rosa-autonode-nodeclass
+  - Name: Encrypt root volumes with a customer-managed key
+    File: rosa-autonode-cmk
 - Name: Configuring PID limits
   File: rosa-configuring-pid-limits
 - Name: Managing multi-architecture clusters
@@ -557,13 +579,13 @@ Topics:
 #   Topics:
 #   - Name: About the Cloud Credential Operator
 #     File: about-cloud-credential-operator
-#   - Name: Mint mode
+#   - Name: About mint mode
 #     File: cco-mode-mint
-#   - Name: Passthrough mode
+#   - Name: About passthrough mode
 #     File: cco-mode-passthrough
-#   - Name: Manual mode with long-term credentials for components
+#   - Name: About manual mode with long-term credentials for components
 #     File: cco-mode-manual
-#   - Name: Manual mode with short-term credentials for components
+#   - Name: About manual mode with short-term credentials for components
 #     File: cco-short-term-creds
 ---
 Name: Upgrading
@@ -875,7 +897,7 @@ Topics:
     File: quotas-setting-across-multiple-projects
 - Name: Using config maps with applications
   File: config-maps
-- Name: Monitoring project and application metrics using the Developer perspective
+- Name: Monitoring project and application metrics by using the Developer perspective
   File: odc-monitoring-project-and-application-metrics-using-developer-perspective
 - Name: Monitoring application health
   File: application-health
@@ -1589,10 +1611,12 @@ Topics:
     File: installing-virt
   - Name: Uninstalling OpenShift Virtualization
     File: uninstalling-virt
-- Name: Post-installation configuration
+- Name: Postinstallation configuration
   Dir: post_installation_configuration
   Topics:
-  - Name: Post-installation configuration
+  - Name: Run automated postinstallation configuration
+    File: virt-platform-autopilot
+  - Name: Postinstallation configuration
     File: virt-post-install-config
   - Name: Node placement rules
     File: virt-node-placement-virt-components
@@ -1603,6 +1627,8 @@ Topics:
 # Hiding in ROSA/OSD as Cluster checkup framework TP not supported
 #  - Name: Self validation checkups
 #    File: virt-self-validation-checkups
+  - Name: Virtual machine recovery from node failures
+    File: virt-vm-recovery-from-node-failures
   - Name: Configuring certificate rotation
     File: virt-configuring-certificate-rotation
 - Name: Updating
@@ -1611,34 +1637,23 @@ Topics:
   - Name: Updating OpenShift Virtualization
     File: upgrading-virt
     Distros: openshift-rosa-hcp
-- Name: Creating a virtual machine
+- Name: Creating virtual machines
   Dir: creating_vm
   Topics:
-  - Name: Creating VMs from instance types
-    File: virt-creating-vms-from-instance-types
-  - Name: Creating VMs from templates
-    File: virt-creating-vms-from-templates
+  - Name: Create virtual machines by using the web console
+    File: virt-creating-vms-web
+  - Name: Creating virtual machines by using the CLI
+    File: virt-creating-vms-from-cli
   - Name: Creating AWS EC2 Windows License Included (LI) compliant VMs
     File: virt-creating-vms-aws-li-windows
-- Name: Advanced VM creation
-  Dir: creating_vms_advanced
-  Topics:
-  - Name: Creating virtual machines from Red Hat images
+  - Name: Instance types
+    File: virt-creating-vms-from-instance-types
+  - Name: Managing VM templates
+    File: virt-creating-vms-from-templates
+  - Name: Managing boot sources
     File: virt-creating-vms-from-rh-images-overview
-  - Name: Heterogeneous cluster support
-    File: virt-golden-image-heterogeneous-clusters
-  - Name: Creating VMs by importing images from web pages
-    File: virt-creating-vms-from-web-images
-  - Name: Creating VMs by uploading images
-    File: virt-creating-vms-uploading-images
-  - Name: Cloning VMs
-    File: virt-cloning-vms
-  - Name: Creating virtual machines from the command line
-    File: virt-creating-vms-from-cli
-  - Name: Creating VMs by using container disks
-    File: virt-creating-vms-from-container-disks
-  - Name: Creating VMs by cloning PVCs
-    File: virt-creating-vms-by-cloning-pvcs
+  - Name: Import a virtual machine image using the DataVolume API
+    File: virt-import-dv-vms
 - Name: Managing VMs
   Dir: managing_vms
   Topics:
@@ -1777,6 +1792,8 @@ Topics:
     File: virt-configuring-storage-profile
   - Name: Managing automatic boot source updates
     File: virt-automatic-bootsource-updates
+  - Name: Heterogeneous cluster support
+    File: virt-boot-source-image-heterogeneous-clusters
   - Name: Reserving PVC space for file system overhead
     File: virt-reserving-pvc-space-fs-overhead
   - Name: Configuring local storage by using HPP

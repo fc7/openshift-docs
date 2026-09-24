@@ -4,7 +4,7 @@
 
 :_mod-docs-content-type: PROCEDURE
 [id="updating-interface-specific-safe-sysctls-list_{context}"]
-= Updating the interface-specific safe sysctls list
+= Update the interface-specific safe sysctls list
 
 [role="_abstract"]
 You can modify the default list of safe interface-specific `sysctls` by updating the `cni-sysctl-allowlist` in the `openshift-multus` namespace.
@@ -169,6 +169,7 @@ spec:
           drop:
             - ALL
 ----
++
 where:
 
 `metadata.annotations`:: Specifies the name of the configured `NetworkAttachmentDefinition`.

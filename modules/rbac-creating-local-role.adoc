@@ -6,9 +6,10 @@
 :_mod-docs-content-type: PROCEDURE
 ifdef::openshift-enterprise,openshift-webscale,openshift-origin,openshift-dedicated,openshift-rosa,openshift-rosa-hcp[]
 [id="creating-local-role_{context}"]
-= Creating a local role
+= Create a local role
 
-You can create a local role for a project and then bind it to a user.
+[role="_abstract"]
+You can create a local role and bind it to a user to define custom permissions within a project.
 
 .Procedure
 

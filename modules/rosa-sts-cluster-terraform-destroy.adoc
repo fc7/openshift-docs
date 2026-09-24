@@ -4,13 +4,6 @@
 // * rosa_install_access_delete_clusters/terraform/rosa-classic-creating-a-cluster-quickly-terraform.adoc
 
 :_mod-docs-content-type: PROCEDURE
-ifeval::["{context}" == "rosa-classic-creating-a-cluster-quickly-terraform"]
-:tf-defaults:
-endif::[]
-ifeval::["{context}" == "rosa-hcp-creating-a-cluster-quickly-terraform"]
-:tf-rosa-hcp:
-endif::[]
-
 [id="sd-terraform-cluster-destroy_{context}"]
 = Deleting your {product-title} cluster with Terraform
 
@@ -19,7 +12,12 @@ Use the `terraform destroy` command to remove all resources you create with the 
 
 [NOTE]
 ====
-Keep your Terraform .tf files unchanged before destroying your resources. These variables are matched to resources to delete.
+Keep your Terraform `.tf` files unchanged before destroying your resources. These variables are matched to resources to delete.
+====
+
+[IMPORTANT]
+====
+If deletion protection is enabled on the cluster, disable it by setting `delete_protection = false` in the `main.tf` file, then run `terraform apply` to apply the change.
 ====
 
 .Procedure
@@ -37,16 +35,16 @@ The Terraform interface prompts you for two variables. These should match the an
 var.create_vpc
   If you would like to create a new VPC, set this value to 'true.' If you do not want to create a new VPC, set this value to 'false.'
 
-  Enter a value: 
+  Enter a value:
 
 var.private_cluster
   If you want to create a private cluster, set this value to 'true.' If you want a publicly available cluster, set this value to 'false.'
 
-  Enter a value: 
+  Enter a value:
 ----
 
 . Enter `yes` to start the role and cluster deletion:
-ifdef::tf-rosa-hcp[]
+ifdef::openshift-rosa-hcp[]
 +
 .Example output
 [source,terminal]
@@ -59,8 +57,8 @@ Do you really want to destroy all resources?
 
   Enter a value: yes
 ----
-endif::tf-rosa-hcp[]
-ifdef::tf-rosa-classic[]
+endif::openshift-rosa-hcp[]
+ifdef::openshift-rosa[]
 +
 .Example output
 [source,terminal]
@@ -73,7 +71,7 @@ Do you really want to destroy all resources?
 
   Enter a value: yes
 ----
-endif::tf-rosa-classic[]
+endif::openshift-rosa[]
 
 .Verification
 . Verify that your cluster was destroyed by running the following command:
@@ -116,10 +114,3 @@ $ rosa list operator-roles
 I: Fetching operator roles
 I: No operator roles available
 ----
-
-ifeval::["{context}" == "rosa-classic-creating-a-cluster-quickly-terraform"]
-:tf-defaults:
-endif::[]
-ifeval::["{context}" == "rosa-hcp-creating-a-cluster-quickly-terraform"]
-:tf-rosa-hcp:
-endif::[]

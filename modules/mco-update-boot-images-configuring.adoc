@@ -5,7 +5,7 @@
 
 :_mod-docs-content-type: PROCEDURE
 [id="mco-update-boot-images-configuring_{context}"]
-= Enabling boot image management
+= Enable boot image management
 
 [role="_abstract"]
 include::snippets/mco-update-boot-images-abstract.adoc[]
@@ -196,6 +196,7 @@ sh-5.1# cat /sysroot/.coreos-aleph-version.json
     "version": "9.6.20251015-1"
 }
 ----
++
 where:
 
 `<version>`:: Specifies the boot image version.

@@ -4,7 +4,10 @@
 
 :_mod-docs-content-type: PROCEDURE
 [id="installing-compliance-operator-rosa_{context}"]
-= Installing the Compliance Operator on ROSA hosted control planes (HCP)
+= Install the Compliance Operator on ROSA hosted control planes (HCP)
+
+[role="_abstract"]
+You can install the Compliance Operator on {product-rosa} by using the OpenShift CLI by creating the required namespace, Operator group, and subscription objects.
 
 As of the Compliance Operator 1.5.0 release, the Operator is tested against {product-rosa} using {hcp-capital}.
 
@@ -27,10 +30,13 @@ kind: Namespace
 metadata:
   labels:
     openshift.io/cluster-monitoring: "true"
-    pod-security.kubernetes.io/enforce: privileged <1>
+    pod-security.kubernetes.io/enforce: privileged
   name: openshift-compliance
 ----
-<1> In {product-title} {product-version}, the pod security label must be set to `privileged` at the namespace level.
++
+where:
+
+`metadata.labels.pod-security.kubernetes.io/enforce`:: Specifies the pod security label that must be set to `privileged` at the namespace level in {product-title} {product-version}.
 
 . Create the `Namespace` object by running the following command:
 +
@@ -79,9 +85,9 @@ spec:
   sourceNamespace: openshift-marketplace
   config:
     nodeSelector:
-      node-role.kubernetes.io/worker: "" <1>
+      node-role.kubernetes.io/worker: ""
 ----
-<1> Update the Operator deployment to deploy on `worker` nodes.
+* Update the Operator deployment to deploy on `worker` nodes.
 
 . Create the `Subscription` object by running the following command:
 +

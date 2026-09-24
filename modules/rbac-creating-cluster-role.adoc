@@ -6,13 +6,14 @@
 :_mod-docs-content-type: PROCEDURE
 ifdef::openshift-enterprise,openshift-webscale,openshift-origin[]
 [id="creating-cluster-role_{context}"]
-= Creating a cluster role
+= Create a cluster role
 
-You can create a cluster role.
+[role="_abstract"]
+To define custom cluster-wide permissions, you can create a cluster role that specifies the verbs and resources users can access.
 
 .Procedure
 
-. To create a cluster role, run the following command:
+* To create a cluster role, run the following command:
 +
 [source,terminal]
 ----

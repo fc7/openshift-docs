@@ -1,0 +1,38 @@
+// Module included in the following assemblies:
+//
+// * rosa_getting_started/rosa-quickstart-guide-ui.adoc
+// * rosa_install_access_delete_clusters/rosa-sts-creating-a-cluster-quickly.adoc
+
+:_mod-docs-content-type: PROCEDURE
+[id="rosa-sts-creating-account-wide-sts-roles-and-policies_{context}"]
+= Create the account-wide STS roles and policies
+
+[role="_abstract"]
+Before using the {hybrid-console} to create {product-title} clusters that use the AWS Security Token Service (STS), create the required account-wide STS roles and policies, including the Operator policies.
+
+.Procedure
+
+. If they do not exist in your AWS account, create the required account-wide AWS IAM STS roles and policies:
++
+[source,terminal]
+----
+$ rosa create account-roles
+----
++
+Select the default values at the prompts to quickly create the roles and policies.
+
+.Verification
+
+* Verify that the account roles were created:
++
+[source,terminal]
+----
+$ rosa list account-roles
+----
+
+[role="_additional-resources"]
+.Additional resources
+
+* link:https://docs.openshift.com/rosa/rosa_architecture/rosa-sts-about-iam-resources.html[About IAM resources for ROSA clusters that use STS]
+* link:https://docs.openshift.com/rosa/rosa_install_access_delete_clusters/rosa-sts-aws-prereqs.html[AWS prerequisites for ROSA with STS]
+* link:https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html[IAM policies and permissions in AWS]

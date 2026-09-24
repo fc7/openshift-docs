@@ -6,7 +6,8 @@
 [id="compliance-supported-profiles_{context}"]
 = Compliance profiles
 
-The Compliance Operator provides profiles to meet industry standard benchmarks.
+[role="_abstract"]
+When working with the Compliance Operator (CO), you can use the profiles provided by the Operator to meet industry standard benchmarks.
 
 [NOTE]
 ====
@@ -174,7 +175,7 @@ For more information, see link:https://access.redhat.com/articles/7045834[*BSI Q
 
 [IMPORTANT]
 ====
-Applying automatic remedations to any profile, such as `rhcos4-stig`, that uses the `service-sshd-disabled` rule, automatically disables the `sshd` service. This situation blocks SSH access to control plane nodes and compute nodes. To keep the SSH access enabled, create a `TailoredProfile` object and set the `rhcos4-service-sshd-disabled` rule value for the `disableRules` parameter.
+Applying automatic remediations to any profile, such as `rhcos4-stig`, that uses the `service-sshd-disabled` rule, automatically disables the `sshd` service. This situation blocks SSH access to control plane nodes and compute nodes. To keep the SSH access enabled, create a `TailoredProfile` object and set the `rhcos4-service-sshd-disabled` rule value for the `disableRules` parameter.
 ====
 
 .Supported FedRAMP High compliance profiles
@@ -430,7 +431,7 @@ Applying automatic remedations to any profile, such as `rhcos4-stig`, that uses 
 
 [IMPORTANT]
 ====
-Applying automatic remedations to any profile, such as `rhcos4-stig`, that uses the `service-sshd-disabled` rule, automatically disables the `sshd` service. This situation blocks SSH access to control plane nodes and compute nodes. To keep the SSH access enabled, create a `TailoredProfile` object and set the `rhcos4-service-sshd-disabled` rule value for the `disableRules` parameter.
+Applying automatic remediations to any profile, such as `rhcos4-stig`, that uses the `service-sshd-disabled` rule, automatically disables the `sshd` service. This situation blocks SSH access to control plane nodes and compute nodes. To keep the SSH access enabled, create a `TailoredProfile` object and set the `rhcos4-service-sshd-disabled` rule value for the `disableRules` parameter.
 ====
 
 .Supported STIG compliance profiles
@@ -445,7 +446,7 @@ Applying automatic remedations to any profile, such as `rhcos4-stig`, that uses 
 |Supported platforms
 
 |ocp4-stig ^[1]^
-|Defense Information Systems Agency Security Technical Implementation Guide (DISA STIG) for Red{nbsp}Hat Openshift^[3]^
+|Defense Information Systems Agency Security Technical Implementation Guide (DISA STIG) for Red{nbsp}Hat OpenShift^[3]^
 |Platform
 |link:https://public.cyber.mil/stigs/downloads/[DISA-STIG]
 |`x86_64`
@@ -453,7 +454,7 @@ Applying automatic remedations to any profile, such as `rhcos4-stig`, that uses 
 |
 
 |ocp4-stig-node ^[1]^
-|Defense Information Systems Agency Security Technical Implementation Guide (DISA STIG) for Red{nbsp}Hat Openshift^[3]^
+|Defense Information Systems Agency Security Technical Implementation Guide (DISA STIG) for Red{nbsp}Hat OpenShift^[3]^
 |Node ^[2]^
 |link:https://public.cyber.mil/stigs/downloads/[DISA-STIG]
 |`x86_64`
@@ -462,7 +463,7 @@ Applying automatic remedations to any profile, such as `rhcos4-stig`, that uses 
 
 
 |ocp4-stig-v2r3
-|Defense Information Systems Agency Security Technical Implementation Guide (DISA STIG) for Red{nbsp}Hat Openshift V2R3
+|Defense Information Systems Agency Security Technical Implementation Guide (DISA STIG) for Red{nbsp}Hat OpenShift V2R3
 |Platform
 |link:https://public.cyber.mil/stigs/downloads/[DISA-STIG]
 |`x86_64`
@@ -470,7 +471,7 @@ Applying automatic remedations to any profile, such as `rhcos4-stig`, that uses 
 |
 
 |ocp4-stig-node-v2r3 ^[1]^
-|Defense Information Systems Agency Security Technical Implementation Guide (DISA STIG) for Red{nbsp}Hat Openshift V2R3
+|Defense Information Systems Agency Security Technical Implementation Guide (DISA STIG) for Red{nbsp}Hat OpenShift V2R3
 |Node
 |link:https://public.cyber.mil/stigs/downloads/[DISA-STIG]
 |`x86_64`
@@ -478,7 +479,7 @@ Applying automatic remedations to any profile, such as `rhcos4-stig`, that uses 
 |
 
 |rhcos4-stig^[1]^
-|Defense Information Systems Agency Security Technical Implementation Guide (DISA STIG) for Red{nbsp}Hat Openshift^[3]^
+|Defense Information Systems Agency Security Technical Implementation Guide (DISA STIG) for Red{nbsp}Hat OpenShift^[3]^
 |Node
 |link:https://public.cyber.mil/stigs/downloads/[DISA-STIG]
 |`x86_64`
@@ -486,7 +487,7 @@ Applying automatic remedations to any profile, such as `rhcos4-stig`, that uses 
 |{product-rosa} with {hcp} (ROSA HCP)
 
 |rhcos4-stig-v2r3
-|Defense Information Systems Agency Security Technical Implementation Guide (DISA STIG) for Red{nbsp}Hat Openshift V2R3
+|Defense Information Systems Agency Security Technical Implementation Guide (DISA STIG) for Red{nbsp}Hat OpenShift V2R3
 |Node
 |link:https://public.cyber.mil/stigs/downloads/[DISA-STIG]
 |`x86_64`

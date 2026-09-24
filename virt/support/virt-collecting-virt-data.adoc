@@ -7,7 +7,9 @@ include::_attributes/common-attributes.adoc[]
 toc::[]
 
 [role="_abstract"]
-When you submit a support case to Red{nbsp}Hat Support, it is helpful to provide debugging information for {product-title} and {VirtProductName} by using the following tools:
+When you submit a support case to Red{nbsp}Hat Support, it is helpful to provide debugging information for {product-title} and {VirtProductName}.
+
+You can use the following tools to collect debugging information:
 
 // must-gather not supported for ROSA/OSD, per Dustin Row
 ifndef::openshift-rosa,openshift-dedicated,openshift-rosa-hcp[]
@@ -35,6 +37,10 @@ include::modules/virt-must-gather-options.adoc[leveloffset=+2]
 endif::openshift-rosa,openshift-dedicated,openshift-rosa-hcp[]
 
 include::modules/virt-generating-a-vm-memory-dump.adoc[leveloffset=+1]
+
+ifndef::openshift-rosa,openshift-dedicated,openshift-rosa-hcp,openshift-origin[]
+include::modules/about-self-service-tsr.adoc[leveloffset=+1]
+endif::openshift-rosa,openshift-dedicated,openshift-rosa-hcp,openshift-origin[]
 
 [role="_additional-resources"]
 [id="additional-resources_{context}"]

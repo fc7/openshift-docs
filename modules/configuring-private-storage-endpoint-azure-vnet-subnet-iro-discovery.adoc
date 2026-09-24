@@ -4,7 +4,10 @@
 
 :_mod-docs-content-type: PROCEDURE
 [id="configuring-private-storage-endpoint-azure-vnet-subnet-iro-discovery_{context}"]
-= Configuring a private storage endpoint on Azure by enabling the Image Registry Operator to discover VNet and subnet names
+= Configure a private storage endpoint on Azure by enabling the Image Registry Operator to discover VNet and subnet names
+
+[role="_abstract"]
+You can configure a private Azure storage endpoint by enabling the Image Registry Operator to discover the VNet and subnet, allowing registry storage without public network access.
 
 The following procedure shows you how to set up a private storage endpoint on Azure by configuring the Image Registry Operator to discover VNet and subnet names.
 
@@ -66,7 +69,6 @@ $ oc get imagestream -n openshift
 ----
 +
 .Example output
-+
 [source,terminal]
 ----
 NAME   IMAGE REPOSITORY                                                 TAGS     UPDATED
@@ -96,7 +98,6 @@ $ podman login --tls-verify=false -u unused -p $(oc whoami -t) image-registry.op
 ----
 +
 .Example output
-+
 [source,terminal]
 ----
 Login Succeeded!
@@ -110,7 +111,6 @@ $ podman pull --tls-verify=false image-registry.openshift-image-registry.svc:500
 ----
 +
 .Example output
-+
 [source,terminal]
 ----
 Trying to pull image-registry.openshift-image-registry.svc:5000/openshift/tools/openshift/tools...

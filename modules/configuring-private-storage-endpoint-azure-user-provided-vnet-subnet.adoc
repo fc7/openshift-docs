@@ -4,7 +4,10 @@
 
 :_mod-docs-content-type: PROCEDURE
 [id="configuring-private-storage-endpoint-azure-user-provided-vnet-subnet_{context}"]
-= Configuring a private storage endpoint on Azure with user-provided VNet and subnet names
+= Configure a private storage endpoint on Azure with user-provided VNet and subnet names
+
+[role="_abstract"]
+You can configure a private Azure storage endpoint for the image registry by specifying user-provided VNet and subnet names, enabling registry storage without public network access.
 
 Use the following procedure to configure a storage account that has public network access disabled and is exposed behind a private storage endpoint on Azure.
 
@@ -62,7 +65,6 @@ $ oc get imagestream -n openshift
 ----
 +
 .Example output
-+
 [source,terminal]
 ----
 NAME   IMAGE REPOSITORY                                                 TAGS     UPDATED
@@ -92,7 +94,6 @@ $ podman login --tls-verify=false -u unused -p $(oc whoami -t) image-registry.op
 ----
 +
 .Example output
-+
 [source,terminal]
 ----
 Login Succeeded!
@@ -106,7 +107,6 @@ $ podman pull --tls-verify=false image-registry.openshift-image-registry.svc:500
 ----
 +
 .Example output
-+
 [source,terminal]
 ----
 Trying to pull image-registry.openshift-image-registry.svc:5000/openshift/tools/openshift/tools...

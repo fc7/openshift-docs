@@ -4,7 +4,7 @@
 
 :_mod-docs-content-type: PROCEDURE
 [id="configuring-audit-policy-custom_{context}"]
-= Configuring the audit log policy with custom rules
+= Configure the audit log policy with custom rules
 
 [role="_abstract"]
 You can configure an audit log policy that defines custom rules. You can specify multiple groups and define which profile to use for that group.
@@ -46,6 +46,7 @@ spec:
       profile: AllRequestBodies
     profile: Default
 ----
++
 where:
 +
 `customRules`:: Add one or more groups and specify the profile to use for that group. These custom rules take precedence over the top-level profile field. The custom rules are evaluated from top to bottom, and the first that matches is applied.

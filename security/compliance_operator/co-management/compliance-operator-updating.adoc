@@ -6,6 +6,7 @@ include::_attributes/common-attributes.adoc[]
 
 toc::[]
 
+[role="_abstract"]
 As a cluster administrator, you can update the Compliance Operator on your {product-title} cluster.
 //
 // This will be un-commented for OCP 4.11-4.14 releases. Commented out in the main branch.
@@ -20,9 +21,3 @@ include::modules/olm-preparing-upgrade.adoc[leveloffset=+1]
 include::modules/olm-changing-update-channel.adoc[leveloffset=+1]
 
 include::modules/olm-approving-pending-upgrade.adoc[leveloffset=+1]
-
-// [id="additional-resources-updating-the-compliance-operator"]
-// [role="_additional-resources"]
-// == Additional resources
-//
-// * For more information, see xref:../../../operators/admin/

@@ -6,7 +6,13 @@
 [id="using-assisted-installer-oci-create-cluster_{context}"]
 = Creating the cluster
 
-Set the cluster details.
+[role="_abstract"]
+To begin creating the cluster, set the cluster details.
+
+.Prerequisites
+
+* You created a child compartment and an object storage bucket on {oci-distributed-no-rt}. For details, see _Preparing the {oci-distributed-no-rt} environment_.
+* You reviewed details about the {product-title} installation and update processes.
 
 .Procedure
 

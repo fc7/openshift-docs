@@ -13,20 +13,20 @@ endif::[]
 
 :_mod-docs-content-type: PROCEDURE
 [id="machine-user-infra-machines-iso_{context}"]
-= Creating {op-system} machines using an ISO image
+= Create {op-system} machines by using an ISO image
 
 [role="_abstract"]
 ifndef::ibm-power[]
-You can create more {op-system-first} compute machines for your bare metal cluster by using an ISO image to create the machines.
+To scale your {product-title} bare metal cluster, you can create more {op-system-first} compute machines by using an ISO image.
 endif::ibm-power[]
 ifdef::ibm-power[]
-You can create more {op-system-first} compute machines for your cluster by using an ISO image to create the machines.
+To scale your {product-title} cluster, you can create more {op-system-first} compute machines by using an ISO image.
 endif::ibm-power[]
 
 .Prerequisites
 
-* Obtain the URL of the Ignition config file for the compute machines for your cluster. You uploaded this file to your HTTP server during installation.
-* You must have the OpenShift CLI (`oc`)  installed.
+* You have obtained the URL of the Ignition config file for the compute machines for your cluster. You uploaded this file to your HTTP server during installation.
+* You must have the {oc-first} installed.
 
 .Procedure
 
@@ -46,7 +46,7 @@ $ oc extract -n openshift-machine-api secret/worker-user-data-managed --keys=use
 $ curl -k http://<HTTP_server>/worker.ign
 ----
 
-. You can access the ISO image for booting your new machine by running to following command:
+. You can access the ISO image for booting your new machine by running the following command:
 +
 [source,terminal]
 ----
@@ -54,7 +54,9 @@ RHCOS_VHD_ORIGIN_URL=$(oc -n openshift-machine-config-operator get configmap/cor
 ----
 
 . Use the ISO file to install {op-system} on more compute machines. Use the same method that you used when you created machines before you installed the cluster:
++
 ** Burn the ISO image to a disk and boot it directly.
++
 ** Use ISO redirection with a LOM interface.
 
 . Boot the {op-system} ISO image without specifying any options, or interrupting the live boot sequence. Wait for the installer to boot into a shell prompt in the {op-system} live environment.

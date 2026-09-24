@@ -6,6 +6,7 @@
 [id="installation-osp-creating-control-plane_{context}"]
 = Creating the control plane machines on {rh-openstack}
 
+[role="_abstract"]
 Create three control plane machines by using the Ignition config files that you generated. Red Hat provides an Ansible playbook that you run to simplify this process.
 
 .Prerequisites
@@ -36,12 +37,14 @@ $ ansible-playbook -i inventory.yaml control-plane.yaml
 $ openshift-install wait-for bootstrap-complete
 ----
 +
-You will see messages that confirm that the control plane machines are running and have joined the cluster:
+You will see messages that confirm that the control plane machines are running and have joined the cluster.
 +
 [source,terminal]
 ----
 INFO API v1.35.4 up
-INFO Waiting up to 30m0s for bootstrapping to complete...
+INFO Waiting up to 45m0s for bootstrapping to complete...
 ...
 INFO It is now safe to remove the bootstrap resources
 ----
++
+The bootstrapping completion wait time varies per platform.

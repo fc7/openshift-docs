@@ -5,23 +5,22 @@
 
 :_mod-docs-content-type: PROCEDURE
 [id="identity-provider-configuring-using-the-web-console_{context}"]
-= Configuring identity providers using the web console
+= Configure identity providers using the web console
 
-Configure your identity provider (IDP) through the web console instead of the CLI.
+[role="_abstract"]
+You can configure identity providers on your {product-title} cluster through the web console by updating the *OAuth* settings in the *Cluster Settings*.
 
 .Prerequisites
 
-* You must be logged in to the web console as a cluster administrator.
+* You are logged in to the web console as a cluster administrator.
 
 .Procedure
 
 . Navigate to *Administration* -> *Cluster Settings*.
 . Under the *Configuration* tab, click *OAuth*.
-. Under the *Identity Providers* section, select your identity provider from the
-*Add* drop-down menu.
-
+. Under the *Identity Providers* section, select your identity provider from the *Add* drop-down list.
++
 [NOTE]
 ====
-You can specify multiple IDPs through the web console without overwriting
-existing IDPs.
+You can specify multiple identity providers through the web console without overwriting existing identity providers.
 ====

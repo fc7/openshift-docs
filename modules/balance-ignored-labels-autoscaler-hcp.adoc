@@ -4,8 +4,9 @@
 
 :_mod-docs-content-type: PROCEDURE
 [id="balance-ignored-labels-autoscaler-hcp_{context}"]
-= Balancing ignored labels in a hosted cluster
+= Balance ignored labels in a hosted cluster
 
+[role="_abstract"]
 After you scale up your node pools, you can use `balancingIgnoredLabels` to evenly distribute the machines across node pools.
 
 .Prerequisites
@@ -62,7 +63,7 @@ $ hcp create kubeconfig \
   --namespace <hosted_cluster_namespace> > nested.config
 ----
 
-. After scaling up the node pools, check that all compute nodes are in the `Ready` status by running the following command:
+. After you scale up the node pools, check that all compute nodes are in the `Ready` status by running the following command:
 +
 [source,terminal]
 ----

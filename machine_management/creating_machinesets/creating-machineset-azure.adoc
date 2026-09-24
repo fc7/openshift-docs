@@ -53,7 +53,7 @@ include::modules/machineset-azure-ultra-disk.adoc[leveloffset=+1]
 
 [role="_additional-resources"]
 .Additional resources
-* link:https://docs.microsoft.com/en-us/azure/virtual-machines/disks-types#ultra-disks[{azure-full} ultra disks documentation]
+* link:https://docs.microsoft.com/en-us/azure/virtual-machines/disks-types#ultra-disks[Ultra disks ({azure-short} documentation)]
 * xref:../../storage/container_storage_interface/persistent-storage-csi-azure.adoc#machineset-azure-ultra-disk_persistent-storage-csi-azure[Machine sets that deploy machines on ultra disks using CSI PVCs]
 * xref:../../storage/persistent_storage/persistent-storage-azure.adoc#machineset-azure-ultra-disk_persistent-storage-azure[Machine sets that deploy machines on ultra disks using in-tree PVCs]
 
@@ -75,6 +75,14 @@ include::modules/machineset-azure-confidential-vms.adoc[leveloffset=+1]
 // Accelerated Networking for Microsoft Azure VMs
 include::modules/machineset-azure-accelerated-networking.adoc[leveloffset=+1]
 
+// Enabling Accelerated Networking on an existing Microsoft Azure cluster
+include::modules/machineset-azure-enabling-accelerated-networking-existing.adoc[leveloffset=+2]
+
+[role="_additional-resources"]
+.Additional resources
+
+* xref:../../installing/installing_azure/ipi/installing-azure-customizations.adoc#machineset-azure-enabling-accelerated-networking-new-install_installing-azure-customizations[Enabling Accelerated Networking during installation]
+
 //Configuring Capacity Reservation by using machine sets
 include::modules/machineset-capacity-reservation.adoc[leveloffset=+1,tag=!controlplane]
 
@@ -83,13 +91,6 @@ include::modules/nvidia-gpu-azure-adding-a-gpu-node.adoc[leveloffset=+1]
 
 //Deploying the Node Feature Discovery Operator (stesmith)
 include::modules/nvidia-gpu-aws-deploying-the-node-feature-discovery-operator.adoc[leveloffset=+1]
-
-[role="_additional-resources"]
-.Additional resources
-* xref:../../installing/installing_azure/ipi/installing-azure-customizations.adoc#machineset-azure-enabling-accelerated-networking-new-install_installing-azure-customizations[Enabling Accelerated Networking during installation]
-
-// Enabling Accelerated Networking on an existing Microsoft Azure cluster
-include::modules/machineset-azure-enabling-accelerated-networking-existing.adoc[leveloffset=+2]
 
 [role="_additional-resources"]
 .Additional resources

@@ -4,7 +4,7 @@
 
 :_mod-docs-content-type: PROCEDURE
 [id="cert-manager-trust-manager-install_{context}"]
-= Installing the trust-manager operand
+= Install the trust-manager operand
 
 [role="_abstract"]
 You can install the trust-manager operand to enable the automated distribution of trust bundles across your cluster namespaces. The trust-manager operand is not installed by default.
@@ -13,8 +13,6 @@ You can install the trust-manager operand to enable the automated distribution o
 include::snippets/technology-preview.adoc[leveloffset=+1]
 
 .Prerequisites
-
-* You have enabled one of the following feature sets on your cluster: `TechPreviewNoUpgrade`, `DevPreviewNoUpgrade`, `CustomNoUpgrade`, or `OKD`. For more information on enabling the feature set, see "Enabling features using feature gates".
 
 * You have access to the cluster with `cluster-admin` privileges.
 

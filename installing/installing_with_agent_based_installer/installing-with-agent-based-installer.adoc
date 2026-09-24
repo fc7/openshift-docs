@@ -19,6 +19,7 @@ include::modules/installing-ocp-agent-prereqs.adoc[leveloffset=+1]
 * xref:../../architecture/architecture-installation.adoc#architecture-installation[Installation and update]
 * xref:../../installing/overview/installing-preparing.adoc#installing-preparing[Selecting a cluster installation method and preparing it for users]
 * xref:../../installing/install_config/configuring-firewall.adoc#configuring-firewall-module_configuring-firewall[Configuring your firewall]
+* xref:../../installing/installing_with_agent_based_installer/preparing-to-install-with-agent-based-installer.adoc#agent-install-networking-ports_preparing-to-install-with-agent-based-installer[Port requirements for the rendezvous host]
 
 // Downloading the Agent-based Installer
 include::modules/installing-ocp-agent-download.adoc[leveloffset=+1]
@@ -70,16 +71,16 @@ include::modules/installing-ocp-agent-encrypt.adoc[leveloffset=+2]
 [role="_additional-resources"]
 .Additional resources
 
-* xref:../../installing/install_config/installing-customizing.adoc#installation-special-config-encrypt-disk_installing-customizing[About disk encryption]
+* xref:../../installing/install_config/installing-customizing.adoc#installation-special-config-storage_installing-customizing[About disk encryption]
+
+// Configuring cluster network MTU
+include::modules/installing-ocp-agent-cluster-network-mtu.adoc[leveloffset=+2]
 
 // Creating and booting the agent image
 include::modules/installing-ocp-agent-boot.adoc[leveloffset=+1]
 
 // Adding {ibm-z-name} agents with {op-system-base} KVM
 include::modules/installing-ocp-agent-ibm-z-kvm.adoc[leveloffset=+1]
-
-// Configuring a local arbiter node
-include::modules/installing-ocp-agent-local-arbiter-node.adoc[leveloffset=+1]
 
 // Verifying that the current installation host can pull release images
 include::modules/installing-ocp-agent-tui.adoc[leveloffset=+1]

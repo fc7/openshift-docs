@@ -1,0 +1,147 @@
+// Module included in the following assemblies:
+//
+// * networking/networking_operators/dpf_operator/dpf-operator-installation.adoc
+
+:_mod-docs-content-type: PROCEDURE
+[id="nw-dpf-creating-dpfoperatorconfig_{context}"]
+= Create the DPFOperatorConfig custom resource
+
+[role="_abstract"]
+Create a `DPFOperatorConfig` custom resource to configure the DPF Operator components, including the provisioning controller, static cluster manager, and SR-IOV device plugin controller.
+
+.Prerequisites
+
+* You have installed the DPF Operator.
+* You have set the DPF Operator environment variables. For details, see "DPF Operator installation environment variables".
+
+.Procedure
+
+. Create a file named `dpfoperatorconfig.yaml` with the following content:
++
+[NOTE]
+====
+MTU Configuration: Set `NODES_MTU` to `1500` for standard MTU environments or `9000` for jumbo frame environments. This value must be consistent across:
+
+* Assisted Installer host configuration
+* DPFOperatorConfig networking section (this step)
+* DPUServiceNAD configuration
+
+Choose based on your network infrastructure capabilities.
+====
++
+[source,yaml]
+----
+apiVersion: operator.dpu.nvidia.com/v1alpha1
+kind: DPFOperatorConfig
+metadata:
+  name: dpfoperatorconfig
+  namespace: dpf-operator-system
+spec:
+  kamajiClusterManager:
+    disable: true
+  multus:
+    disable: true
+  cniInstaller:
+    disable: true
+  networking:
+    controlPlaneMTU: $NODES_MTU      # management/OOB MTU (= NODES_MTU: 1500 standard, 9000 jumbo)
+    highSpeedMTU: $NODES_MTU         # high-speed fabric MTU (= NODES_MTU; must match controlPlaneMTU)
+    dpuNodeOOBBridgeName: br-ex      # OOB bridge for DPU provisioning; br-ex on OpenShift
+  overrides:
+    dpuCNIBinPath: /var/lib/cni/bin/
+    dpuCNIPath: /run/multus/cni/net.d/
+    dpuOpenvSwitchSystemSharedLib64Path: /lib64
+    flannelSkipCNIConfigInstallation: false
+    kubernetesAPIServerPort: $TARGETCLUSTER_API_SERVER_PORT
+    kubernetesAPIServerVIP: $HOST_CLUSTER_API
+    dpuLinkerCachePath: /etc/ld.so.cache
+    dpuOptLibraryPath: /usr/opt
+  provisioningController:
+    enableDynamicBFCFGTemplates: true
+    hostAgentDNSPolicy: Default
+    dmsTimeout: 900
+  nodeSRIOVDevicePluginController:
+    devicePlugin:
+      defaultResourcePrefix: openshift.io
+    disable: false
+    replicas: 1
+  staticClusterManager:
+    disable: false
+  dpuServiceController:
+    disableHostNetworkReadyNoExecuteTaints: false
+  flannel:
+    podCIDR: $FLANNEL_POD_CIDR
+----
+
+. Apply the resource file:
++
+[source,terminal]
+----
+$ envsubst < dpfoperatorconfig.yaml | oc apply -f -
+----
+
+.Verification
+
+. Verify that the provisioning controller manager deployment has rolled out:
++
+[source,terminal]
+----
+$ oc rollout status deployment --namespace dpf-operator-system dpf-provisioning-controller-manager
+----
++
+.Example output
+[source,terminal]
+----
+deployment "dpf-provisioning-controller-manager" successfully rolled out
+----
+
+. Verify that the DPU service controller manager deployment has rolled out:
++
+[source,terminal]
+----
+$ oc rollout status deployment --namespace dpf-operator-system dpuservice-controller-manager
+----
++
+.Example output
+[source,terminal]
+----
+deployment "dpuservice-controller-manager" successfully rolled out
+----
+
+. Verify that all Operator deployments in the `dpf-operator-system` namespace have rolled out:
++
+[NOTE]
+====
+You might need to run this command more than once, because the deployments become available at different times as the Operator reconciles its resources.
+====
++
+[source,terminal]
+----
+$ oc rollout status deployment --namespace dpf-operator-system
+----
+
+. Optional: List the pods in the `dpf-operator-system` namespace to review their status:
++
+[source,terminal]
+----
+$ oc get pods -n dpf-operator-system
+----
++
+.Example output
+[source,terminal]
+----
+NAME                                                    READY   STATUS    RESTARTS   AGE
+argocd-application-controller-0                          1/1     Running   0          64m
+argocd-dex-server-9dd99cc6c-pkl6j                       1/1     Running   0          64m
+argocd-redis-6749d85f98-mw9rc                           1/1     Running   0          64m
+argocd-repo-server-5fd79d655c-9rl26                     1/1     Running   0          64m
+argocd-server-5cc4f69c45-hzgm9                          1/1     Running   0          64m
+bfb-registry                                            1/1     Running   0          98s
+dpf-nodesriovdeviceplugin-controller-7c7bb889f6-xk6nm   1/1     Running   0          107s
+dpf-operator-controller-manager-6969c6d8bc-4njxd        1/1     Running   0          4m54s
+dpf-provisioning-controller-manager-54b6bdc57f-69lr7    1/1     Running   0          109s
+dpf-provisioning-controller-manager-54b6bdc57f-fg9f6    1/1     Running   0          109s
+dpuservice-controller-manager-5d9c4f6f67-wsdzt          1/1     Running   0          108s
+maintenance-operator-68c794b549-pp2dp                   1/1     Running   0          74m
+static-cm-controller-manager-745c8fd7d5-n8d2z           1/1     Running   0          110s
+----

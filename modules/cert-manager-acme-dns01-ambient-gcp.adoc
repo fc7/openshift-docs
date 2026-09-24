@@ -4,7 +4,7 @@
 
 :_mod-docs-content-type: PROCEDURE
 [id="cert-manager-acme-dns01-ambient-gcp_{context}"]
-= Configuring an ACME issuer by using ambient credentials on {gcp-short}
+= Configure an ACME issuer by using ambient credentials on {gcp-short}
 
 [role="_abstract"]
 You can use the {cert-manager-operator} to set up an ACME issuer to solve DNS-01 challenges by using ambient credentials on {gcp-short}. This procedure uses _Let's Encrypt_ as the ACME CA server and shows how to solve DNS-01 challenges with {gcp-full} DNS.
@@ -94,6 +94,7 @@ spec:
 where:
 +
 `<issuer_name>`:: Specifies a name for the issuer.
+`<issuer_namespace>`:: Specifies a namespace for the issuer.
 `<secret_private_key>`:: Specifies the name of the secret to store the ACME account private key in.
 `<server>`:: Specifies the URL to access the ACME server's `directory` endpoint. This example uses the _Let's Encrypt_ staging environment.
 `<gcp_project_id>`:: Specifies the name of the {gcp-short} project that contains the Cloud DNS zone.

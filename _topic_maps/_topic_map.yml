@@ -141,8 +141,6 @@ Topics:
   File: about-installing-oc-mirror-v2
 - Name: Migrating from oc-mirror plugin v1 to v2
   File: oc-mirror-migration-v1-to-v2
-- Name: Mirroring images for a disconnected installation using the oc-mirror plugin v1
-  File: installing-mirroring-disconnected
 - Name: Mirroring images for a disconnected installation by using the oc adm command
   File: installing-mirroring-installation-images
 - Name: Installing a cluster in a disconnected environment
@@ -382,6 +380,8 @@ Topics:
     File: installing-ibm-cloud-private
   - Name: Installing a cluster on IBM Cloud in a disconnected environment
     File: installing-ibm-cloud-restricted
+  - Name: Postinstallation configuration for a disconnected IBM Cloud cluster
+    File: installing-ibm-cloud-restricted-postinstallation-configuration
   - Name: Installation configuration parameters for IBM Cloud
     File: installation-config-parameters-ibm-cloud-vpc
   - Name: Uninstalling a cluster on IBM Cloud
@@ -422,8 +422,8 @@ Topics:
     File: installing-with-agent-basic
   - Name: Installing a cluster with customizations
     File: installing-with-agent-based-installer
-  - Name: Installing a cluster without an external registry
-    File: installing-ove
+  # - Name: Installing a cluster without an external registry
+  #   File: installing-ove
   - Name: Preparing PXE assets for OCP
     File: prepare-pxe-assets-agent
   - Name: Preparing installation assets for iSCSI booting
@@ -817,26 +817,6 @@ Topics:
       File: update-completing-the-y-stream-update
     - Name: Completing the z-stream update
       File: update-completing-the-z-stream-update
-  - Name: Upgrading OKD clusters
-    Dir: updating
-    Distros: openshift-origin
-    Topics:
-    - Name: Upgrading OKD clusters
-      File: update-welcome
-    - Name: OKD API compatibility
-      File: update-api
-    - Name: Preparing for the cluster update
-      File: update-ocp-update-prep
-    - Name: Managing application pods during the cluster update
-      File: update-cnf-update-prep
-    - Name: Before you update the cluster
-      File: update-before-the-update
-    - Name: Completing the Control Plane Only update
-      File: update-completing-the-control-plane-only-update
-    - Name: Completing the y-stream update
-      File: update-completing-the-y-stream-update
-    - Name: Completing the z-stream update
-      File: update-completing-the-z-stream-update
   - Name: Troubleshooting and maintaining OpenShift Container Platform clusters
     Distros: openshift-enterprise
     Dir: troubleshooting
@@ -928,6 +908,8 @@ Topics:
 - Name: Performing a cluster update
   Dir: updating_a_cluster
   Topics:
+  - Name: Updating a cluster to OpenShift Container Platform 5.0
+    File: update-ocp-5
   - Name: Updating a cluster using the CLI
     File: updating-cluster-cli
   - Name: Updating a cluster using the web console
@@ -1356,6 +1338,22 @@ Topics:
     File: nbde-tang-server-operator-identifying-url
 - Name: Understanding secrets management
   File: understanding-secrets-management
+- Name: External Secrets Management Console Plug-in
+  Dir: external_secrets_management_console_plugin
+  Distros: openshift-enterprise
+  Topics:
+  - Name: External Secrets Management Console Plug-in overview
+    File: index
+  - Name: External Secrets Management Console Plug-in release notes
+    File: external-secrets-console-plugin-release-notes
+  - Name: Installing the External Secrets Management Console Plug-in
+    File: external-secrets-console-plugin-install
+  - Name: Monitoring the External Secrets Management Console Plug-in
+    File: external-secrets-console-plugin-monitor
+  - Name: Uninstalling the External Secrets Management Console Plug-in
+    File: external-secrets-console-plugin-uninstall
+  - Name: Deleting certificates and secrets with External Secrets Management Console Plug-in
+    File: external-secrets-console-plugin-delete
 - Name: cert-manager Operator for Red Hat OpenShift
   Dir: cert_manager_operator
   Distros: openshift-enterprise
@@ -1410,6 +1408,12 @@ Topics:
     File: zero-trust-manager-oidc-federation
   - Name: Configuring Zero Trust Workload Identity Manager SPIRE Federation
     File: zero-trust-manager-spire-federation
+  - Name: Using the SPIFFE Helper container image
+    File: zero-trust-manager-spiffe-helper
+  - Name: Integrating OpenShift Service Mesh with Zero Trust Workload Identity Manager
+    File: zero-trust-manager-mesh-integration
+  - Name: Integrating SPIRE federation with multi-cluster Red Hat OpenShift Service Mesh
+    File: zero-trust-manager-mesh-integration-multi-cluster
   - Name: Enabling create-only mode for the Zero Trust Workload Identity Manager
     File: zero-trust-manager-reconciliation
   - Name: SPIRE UpstreamAuthority plugins for Zero Trust Workload Identity Manager
@@ -1552,13 +1556,13 @@ Topics:
   Topics:
   - Name: About the Cloud Credential Operator
     File: about-cloud-credential-operator
-  - Name: Mint mode
+  - Name: About mint mode
     File: cco-mode-mint
-  - Name: Passthrough mode
+  - Name: About passthrough mode
     File: cco-mode-passthrough
-  - Name: Manual mode with long-term credentials for components
+  - Name: About manual mode with long-term credentials for components
     File: cco-mode-manual
-  - Name: Manual mode with short-term credentials for components
+  - Name: About manual mode with short-term credentials for components
     File: cco-short-term-creds
 ---
 Name: Networking
@@ -1665,6 +1669,26 @@ Topics:
     Topics:
     - Name: DPU Operator
       File: dpu-operator
+  - Name: NVIDIA DPF Operator
+    Dir: dpf_operator
+    Distros: openshift-enterprise,openshift-origin
+    Topics:
+    - Name: NVIDIA DPF Operator release notes
+      File: dpf-release-notes
+    - Name: About the NVIDIA DPF Operator
+      File: about-dpf-operator
+    - Name: Set up the environment for DPF
+      File: dpf-environment-setup
+    - Name: Install and configure the DPF Operator
+      File: dpf-operator-installation
+    - Name: Provision the DPU hosted cluster
+      File: dpf-hosted-cluster-provisioning
+    - Name: Add worker nodes and provision DPUs
+      File: dpf-worker-nodes-provisioning
+    - Name: Validate traffic and configure telemetry
+      File: dpf-validation-telemetry
+    - Name: Troubleshoot DPF
+      File: dpf-troubleshooting
 - Name: Network Observability Operator
   Dir: network_observability_operator
   Distros: openshift-enterprise,openshift-origin
@@ -1896,6 +1920,8 @@ Topics:
       File: assigning-network-addresses-gateways
     - Name: Routing HTTP requests to services
       File: routing-http-requests-to-services
+    - Name: Securing HTTPRoutes
+      File: securing-httproutes
     - Name: Routing gRPC requests to services
       File: routing-grpc-requests-to-services
     - Name: Verifying Gateway infrastructure status
@@ -2532,7 +2558,7 @@ Topics:
     Distros: openshift-enterprise,openshift-origin
 - Name: Using config maps with applications
   File: config-maps
-- Name: Monitoring project and application metrics using the Developer perspective
+- Name: Monitoring project and application metrics by using the Developer perspective
   File: odc-monitoring-project-and-application-metrics-using-developer-perspective
 - Name: Monitoring application health
   File: application-health
@@ -2743,6 +2769,8 @@ Topics:
   Topics:
   - Name: Backing up etcd
     File: etcd-backup
+  - Name: Replacing a healthy etcd member
+    File: replace-healthy-etcd-member
   - Name: Replacing an unhealthy etcd member
     File: replace-unhealthy-etcd-member
   - Name: Disaster recovery
@@ -2846,7 +2874,7 @@ Topics:
     File: about-hcp-ha
   - Name: Recovering a failing etcd cluster
     File: hcp-recovering-etcd-cluster
-  - Name: Backing up and restoring etcd in an on-premise environment
+  - Name: Backing up and restoring etcd on a hosted cluster
     File: hcp-backup-restore-on-premise
   - Name: Backing up and restoring etcd on the management cluster
     File: hcp-backup-restore-aws
@@ -2864,7 +2892,7 @@ Topics:
   File: hcp-authentication-authorization
 - Name: Handling machine configuration for hosted control planes
   File: hcp-machine-config
-- Name: Using feature gates in a hosted cluster
+- Name: Feature gates in a hosted cluster
   File: hcp-using-feature-gates
 - Name: Observability for hosted control planes
   File: hcp-observability
@@ -3203,6 +3231,8 @@ Topics:
   File: removing-windows-nodes
 - Name: Disabling Windows container workloads
   File: disabling-windows-container-workloads
+- Name: Troubleshooting Windows container workloads
+  File: windows-containers-troubleshooting
 ---
 Name: OpenShift sandboxed containers
 Dir: sandboxed_containers
@@ -3405,12 +3435,6 @@ Topics:
   Topics:
   - Name: Network Observability Operator release notes
     File: network-observability-operator-release-notes
-  - Name: Network Observability Operator release notes archive
-    Dir: release_notes_archive
-    Distros: openshift-enterprise
-    Topics:
-    - Name: Network Observability Operator release notes archive
-      File: network-observability-operator-release-notes-archive
   - Name: Network observability overview
     File: network-observability-overview
   - Name: Installing the Network Observability Operator
@@ -3543,6 +3567,9 @@ Topics:
   File: cnf-understanding-low-latency
 - Name: Tuning nodes for low latency with the performance profile
   File: cnf-tuning-low-latency-nodes-with-perf-profile
+- Name: Reserving CPUs for OVS-DPDK
+  File: cnf-reserving-cpus-for-ovs-dpdk
+  Distros: openshift-origin,openshift-enterprise
 - Name: Tuning hosted control planes for low latency with the performance profile
   File: cnf-tuning-low-latency-hosted-cp-nodes-with-perf-profile
 - Name: Provisioning real-time and low latency workloads
@@ -3583,6 +3610,8 @@ Topics:
     File: integrating-lws
   - Name: Integrating the JobSet Operator
     File: integrating-jobset
+  - Name: Integrating Dynamic Resource Allocation
+    File: kueue-dra-integrating-dynamic-resource-allocation
   - Name: Configuring role-based permissions
     File: rbac-permissions
   - Name: Configuring quotas
@@ -3873,6 +3902,11 @@ Topics:
     Topics:
     - Name: Uninstalling OADP
       File: uninstalling-oadp
+  - Name: OADP CLI plugin            # ← INSERT HERE
+    Dir: cli-tools
+    Topics:
+    - Name: Using the OADP CLI plugin
+      File: oadp-cli-plugin
   - Name: OADP backing up
     Dir: backing_up_and_restoring
     Topics:
@@ -3919,8 +3953,6 @@ Topics:
       File: oadp-vmfr
     - Name: Using OADP VMFR
       File: oadp-using-vmfr
-    - Name: OADP VMFR end-to-end workflow
-      File: oadp-vmfr-end-to-end
   - Name: OADP VMDP
     Dir: oadp-vmdp
     Topics:
@@ -3976,8 +4008,8 @@ Topics:
     Topics:
     - Name: Troubleshooting OADP
       File: troubleshooting
-    - Name: Velero CLI tool
-      File: velero-cli-tool
+    - Name: OADP CLI tool
+      File: oadp-cli-tool
     - Name: Pods crash or restart due to lack of memory or CPU
       File: pods-crash-or-restart-due-to-lack-of-memory-or-cpu
     - Name: Restoring workarounds for Velero backups that use admission webhooks
@@ -4003,6 +4035,8 @@ Topics:
   Topics:
   - Name: Backing up etcd data
     File: backing-up-etcd
+  - Name: Replacing a healthy etcd member
+    File: replacing-healthy-etcd-member
   - Name: Replacing an unhealthy etcd member
     File: replacing-unhealthy-etcd-member
   - Name: Disaster recovery
@@ -4012,7 +4046,7 @@ Topics:
       File: about-disaster-recovery
     - Name: Quorum restoration
       File: quorum-restoration
-    - Name: Restoring to a previous cluster state
+    - Name: Restoring to an earlier cluster state
       File: scenario-2-restoring-cluster-state
     - Name: Recovering from expired control plane certificates
       File: scenario-3-expired-certs
@@ -4121,6 +4155,8 @@ Topics:
     File: clusterversion-config-openshift-io-v1
   - Name: 'Console [config.openshift.io/v1]'
     File: console-config-openshift-io-v1
+  - Name: 'CRIOCredentialProviderConfig [config.openshift.io/v1]'
+    File: criocredentialproviderconfig-config-openshift-io-v1
   - Name: 'DNS [config.openshift.io/v1]'
     File: dns-config-openshift-io-v1
   - Name: 'FeatureGate [config.openshift.io/v1]'
@@ -4189,6 +4225,10 @@ Topics:
     File: apiservice-apiregistration-k8s-io-v1
   - Name: 'CustomResourceDefinition [apiextensions.k8s.io/v1]'
     File: customresourcedefinition-apiextensions-k8s-io-v1
+  - Name: 'MutatingAdmissionPolicy [admissionregistration.k8s.io/v1]'
+    File: mutatingadmissionpolicy-admissionregistration-k8s-io-v1
+  - Name: 'MutatingAdmissionPolicyBinding [admissionregistration.k8s.io/v1]'
+    File: mutatingadmissionpolicybinding-admissionregistration-k8s-io-v1
   - Name: 'MutatingWebhookConfiguration [admissionregistration.k8s.io/v1]'
     File: mutatingwebhookconfiguration-admissionregistration-k8s-io-v1
   - Name: 'TestExtensionAdmission [testextension.redhat.io/v1]'
@@ -4235,6 +4275,8 @@ Topics:
     File: controllerconfig-machineconfiguration-openshift-io-v1
   - Name: 'ControlPlaneMachineSet [machine.openshift.io/v1]'
     File: controlplanemachineset-machine-openshift-io-v1
+  - Name: 'InternalReleaseImage [machineconfiguration.openshift.io/v1]'
+    File: internalreleaseimage-machineconfiguration-openshift-io-v1
   - Name: 'KubeletConfig [machineconfiguration.openshift.io/v1]'
     File: kubeletconfig-machineconfiguration-openshift-io-v1
   - Name: 'MachineConfig [machineconfiguration.openshift.io/v1]'
@@ -4253,6 +4295,8 @@ Topics:
     File: machineosbuild-machineconfiguration-openshift-io-v1
   - Name: 'MachineOSConfig [machineconfiguration.openshift.io/v1]'
     File: machineosconfig-machineconfiguration-openshift-io-v1
+  - Name: 'OSImageStream [machineconfiguration.openshift.io/v1]'
+    File: osimagestream-machineconfiguration-openshift-io-v1
   - Name: 'PinnedImageSet [machineconfiguration.openshift.io/v1]'
     File: pinnedimageset-machineconfiguration-openshift-io-v1
 - Name: Metadata APIs
@@ -4348,6 +4392,8 @@ Topics:
     File: gatewayclass-gateway-networking-k8s-io-v1
   - Name: 'HTTPRoute [gateway.networking.k8s.io/v1]'
     File: httproute-gateway-networking-k8s-io-v1
+  - Name: 'TLSRoute [gateway.networking.k8s.io/v1]'
+    File: tlsroute-gateway-networking-k8s-io-v1
   - Name: 'Ingress [networking.k8s.io/v1]'
     File: ingress-networking-k8s-io-v1
   - Name: 'IngressClass [networking.k8s.io/v1]'
@@ -4370,14 +4416,16 @@ Topics:
     File: overlappingrangeipreservation-whereabouts-cni-cncf-io-v1alpha1
   - Name: 'PodNetworkConnectivityCheck [controlplane.operator.openshift.io/v1alpha1]'
     File: podnetworkconnectivitycheck-controlplane-operator-openshift-io-v1alpha1
-  - Name: 'ReferenceGrant [gateway.networking.k8s.io/v1beta1]'
-    File: referencegrant-gateway-networking-k8s-io-v1beta1
+  - Name: 'ReferenceGrant [gateway.networking.k8s.io/v1]'
+    File: referencegrant-gateway-networking-k8s-io-v1
   - Name: 'Route [route.openshift.io/v1]'
     File: route-route-openshift-io-v1
   - Name: 'Service [undefined/v1]'
     File: service-v1
   - Name: 'ServiceCIDR [networking.k8s.io/v1]'
     File: servicecidr-networking-k8s-io-v1
+  - Name: 'IPAddress [ipam.cluster.x-k8s.io/v1beta1]'
+    File: ipaddress-ipam-cluster-x-k8s-io-v1beta1
   - Name: 'IPAddressClaim [ipam.cluster.x-k8s.io/v1beta1]'
     File: ipaddressclaim-ipam-cluster-x-k8s-io-v1beta1
   - Name: 'UserDefinedNetwork [k8s.ovn.org/v1]'
@@ -4650,6 +4698,12 @@ Topics:
     File: volumeattributesclass-storage-k8s-io-v1
   - Name: 'VolumePopulator [populator.storage.k8s.io/v1beta1]'
     File: volumepopulator-populator-storage-k8s-io-v1beta1
+  - Name: 'VolumeGroupSnapshot [groupsnapshot.storage.k8s.io/v1]'
+    File: volumegroupsnapshot-groupsnapshot-storage-k8s-io-v1
+  - Name: 'VolumeGroupSnapshotClass [groupsnapshot.storage.k8s.io/v1]'
+    File: volumegroupsnapshotclass-groupsnapshot-storage-k8s-io-v1
+  - Name: 'VolumeGroupSnapshotContent [groupsnapshot.storage.k8s.io/v1]'
+    File: volumegroupsnapshotcontent-groupsnapshot-storage-k8s-io-v1
   - Name: 'VolumeSnapshot [snapshot.storage.k8s.io/v1]'
     File: volumesnapshot-snapshot-storage-k8s-io-v1
   - Name: 'VolumeSnapshotClass [snapshot.storage.k8s.io/v1]'
@@ -4892,6 +4946,8 @@ Topics:
 - Name: Postinstallation configuration
   Dir: post_installation_configuration
   Topics:
+  - Name: Run automated postinstallation configuration
+    File: virt-platform-autopilot
   - Name: Postinstallation configuration
     File: virt-post-install-config
   - Name: Node placement rules
@@ -4906,6 +4962,8 @@ Topics:
     File: virt-physical-cores-allocation-vms
   - Name: Configuring higher VM workload density
     File: virt-configuring-higher-vm-workload-density
+  - Name: Virtual machine recovery from node failures
+    File: virt-vm-recovery-from-node-failures
   - Name: Configuring certificate rotation
     File: virt-configuring-certificate-rotation
   - Name: Configuring KubeVirt Redfish for VM management
@@ -4919,36 +4977,30 @@ Topics:
   - Name: Updating OKD Virtualization
     File: upgrading-virt
     Distros: openshift-origin
-- Name: Creating a virtual machine
+- Name: Creating virtual machines
   Dir: creating_vm
   Topics:
-  - Name: Creating VMs from instance types
-    File: virt-creating-vms-from-instance-types
-  - Name: Creating VMs from templates
-    File: virt-creating-vms-from-templates
+  # Web console procedures (unified wizard — CNV-94223, CNV-94224, CNV-94225, CNV-94226)
+  # Uncomment when CNV-94227 cleanup is complete:
+  - Name: Create virtual machines by using the web console
+    File: virt-creating-vms-web
+  # CLI procedures (existing content, moved from Chapter 8)
+  - Name: Creating virtual machines by using the CLI
+    File: virt-creating-vms-from-cli
+  # Platform-specific
   - Name: Configuring IBM Secure Execution virtual machines on IBM Z and IBM LinuxONE
     File: virt-configuring-ibm-secure-execution-vms-ibm-z
   - Name: Creating AWS EC2 Windows License Included (LI) compliant VMs
     File: virt-creating-vms-aws-li-windows
-- Name: Advanced VM creation
-  Dir: creating_vms_advanced
-  Topics:
-  - Name: Creating virtual machines from Red Hat images
+  # Legacy (preserved until Phase 3 cleanup — CNV-94227)
+  - Name: Instance types
+    File: virt-creating-vms-from-instance-types
+  - Name: Managing VM templates
+    File: virt-creating-vms-from-templates
+  - Name: Managing boot sources
     File: virt-creating-vms-from-rh-images-overview
-  - Name: Heterogeneous cluster support
-    File: virt-golden-image-heterogeneous-clusters
-  - Name: Creating VMs by importing images from web pages
-    File: virt-creating-vms-from-web-images
-  - Name: Creating VMs by uploading images
-    File: virt-creating-vms-uploading-images
-  - Name: Cloning VMs
-    File: virt-cloning-vms
-  - Name: Creating virtual machines from the command line
-    File: virt-creating-vms-from-cli
-  - Name: Creating VMs by using container disks
-    File: virt-creating-vms-from-container-disks
-  - Name: Creating VMs by cloning PVCs
-    File: virt-creating-vms-by-cloning-pvcs
+  - Name: Import a virtual machine image using the DataVolume API
+    File: virt-import-dv-vms
 - Name: Managing VMs
   Dir: managing_vms
   Topics:
@@ -4962,6 +5014,8 @@ Topics:
     File: virt-update-virtio-drivers
   - Name: Connecting to VM consoles
     File: virt-accessing-vm-consoles
+  - Name: Virtual machine management with the MCP server for OpenShift
+    File: virt-machine-management-with-the-mcp-server-for-openshift
   - Name: SSH access
     Dir: ssh
     Topics:
@@ -4993,8 +5047,8 @@ Topics:
     File: virt-using-vtpm-devices
   - Name: Managing virtual machines with OpenShift Pipelines
     File: virt-managing-vms-openshift-pipelines
-  - Name: Migrating VMs in a single cluster to a different storage class
-    File: virt-migrating-vms-in-single-cluster-to-different-storage-class
+  - Name: Migrating VM storage
+    File: virt-migrating-vm-storage
   - Name: Advanced virtual machine management
     Dir: advanced_vm_management
     Topics:
@@ -5104,6 +5158,8 @@ Topics:
     File: virt-configuring-storage-profile
   - Name: Managing automatic boot source updates
     File: virt-automatic-bootsource-updates
+  - Name: Heterogeneous cluster support
+    File: virt-boot-source-image-heterogeneous-clusters
   - Name: Reserving PVC space for file system overhead
     File: virt-reserving-pvc-space-fs-overhead
   - Name: Configuring local storage by using HPP
@@ -5122,10 +5178,6 @@ Topics:
     File: virt-storage-with-csi-paradigm
   - Name: Using OpenShift Virtualization with IBM Fusion Access for SAN
     File: install-configure-fusion-access-san
-    Distros: openshift-enterprise
-  - Name: Using OKD Virtualization with IBM Fusion Access for SAN
-    File: install-configure-fusion-access-san
-    Distros: openshift-origin
 # Virtual machine live migration
 - Name: Live migration
   Dir: live_migration
@@ -5171,6 +5223,8 @@ Topics:
     File: virt-exposing-downward-metrics
   - Name: Virtual machine health checks
     File: virt-monitoring-vm-health
+  - Name: Standalone observability controller
+    File: virt-standalone-observability-controller
   - Name: Runbooks
     File: virt-runbooks
 - Name: Support
@@ -5190,6 +5244,12 @@ Topics:
     File: virt-backup-restore-snapshots
   - Name: Backing up and restoring virtual machines
     File: virt-backup-restore-overview
+  - Name: Recover individual files from virtual machine backups
+    File: virt-recovering-individual-files-from-vm-backups
+  - Name: Use virtual machine file restore
+    File: virt-using-vm-file-restore
+#  - Name: File Restore Operator
+#    File: virt-file-restore-operator
   - Name: Disaster recovery
     File: virt-disaster-recovery
 #  - Name: Collecting OKD Virtualization data for community report

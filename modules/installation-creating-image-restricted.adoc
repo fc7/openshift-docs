@@ -14,6 +14,7 @@ endif::[]
 [id="installation-creating-image-restricted_{context}"]
 = Creating the {op-system} image for restricted network installations
 
+[role="_abstract"]
 Download the {op-system-first} image to install {product-title} on a restricted network
 ifdef::osp[{rh-openstack-first}]
 ifdef::vsphere[VMware vSphere]
@@ -31,10 +32,7 @@ environment.
 +
 [IMPORTANT]
 ====
-The {op-system} images might not change with every release of {product-title}.
-You must download images with the highest version that is less than or equal to
-the {product-title} version that you install. Use the image versions that match
-your {product-title} version if they are available.
+The {op-system} images might not change with every release of {product-title}. You must download images with the highest version that is less than or equal to the {product-title} version that you install. Use the image versions that match your {product-title} version if they are available.
 ====
 
 ifdef::osp[]
@@ -51,10 +49,10 @@ ifdef::osp[]
 ====
 You must decompress the image before the cluster can use it. The name of the downloaded file might not contain a compression extension, like `.gz` or `.tgz`. To find out if or how the file is compressed, in a command line, enter:
 
+[source,terminal]
 ----
 $ file <name_of_downloaded_file>
 ----
-
 ====
 
 . Upload the image that you decompressed to a location that is accessible from the bastion server, like Glance. For example:
@@ -72,12 +70,13 @@ Depending on your {rh-openstack} environment, you might be able to upload the im
 ====
 If the installation program finds multiple images with the same name, it chooses one of them at random. To avoid this behavior, create unique names for resources in {rh-openstack}.
 ====
++
+The image is now available for a restricted installation. Note the image name or location for use in {product-title} deployment.
+
 endif::osp[]
 ifdef::vsphere[]
 . Upload the image you downloaded to a location that is accessible from the bastion server.
 endif::vsphere[]
-
-The image is now available for a restricted installation. Note the image name or location for use in {product-title} deployment.
 
 ifeval::["{context}" == "installing-openstack-installer-restricted"]
 :!osp:

@@ -45,6 +45,9 @@ Runbooks for the {VirtProductName} Operator are maintained in the link:https://g
 | CDIStorageProfilesIncomplete
 | link:https://github.com/openshift/runbooks/blob/master/alerts/openshift-virtualization-operator/CDIStorageProfilesIncomplete.md[Runbook]
 
+| ClusterVMPanicDetected
+| link:https://github.com/openshift/runbooks/blob/master/alerts/openshift-virtualization-operator/ClusterVMPanicDetected.md[Runbook]
+
 | CnaoDown
 | link:https://github.com/openshift/runbooks/blob/master/alerts/openshift-virtualization-operator/CnaoDown.md[Runbook]
 
@@ -207,9 +210,6 @@ Runbooks for the {VirtProductName} Operator are maintained in the link:https://g
 | VirtOperatorRESTErrorsBurst
 | link:https://github.com/openshift/runbooks/blob/master/alerts/openshift-virtualization-operator/VirtOperatorRESTErrorsBurst.md[Runbook]
 
-| VirtualMachineInstanceHasEphemeralHotplugVolume
-| link:https://github.com/openshift/runbooks/blob/master/alerts/openshift-virtualization-operator/VirtualMachineInstanceHasEphemeralHotplugVolume.md[Runbook]
-
 | VirtualMachineStuckInUnhealthyState
 | link:https://github.com/openshift/runbooks/blob/master/alerts/openshift-virtualization-operator/VirtualMachineStuckInUnhealthyState.md[Runbook]
 
@@ -219,8 +219,12 @@ Runbooks for the {VirtProductName} Operator are maintained in the link:https://g
 | VMCannotBeEvicted
 | link:https://github.com/openshift/runbooks/blob/master/alerts/openshift-virtualization-operator/VMCannotBeEvicted.md[Runbook]
 
+| VMNonRecoverableOSPanic
+| link:https://github.com/openshift/runbooks/blob/master/alerts/openshift-virtualization-operator/VMNonRecoverableOSPanic.md[Runbook]
+
 | VMStorageClassWarning
 | link:https://github.com/openshift/runbooks/blob/master/alerts/openshift-virtualization-operator/VMStorageClassWarning.md[Runbook]
+
 |===
 
 [id="virt-runbooks-deprecated"]
@@ -240,6 +244,10 @@ Deprecated alerts no longer report actual issues and you can safely ignore them.
 
 | KubeMacPoolDuplicateMacsFound
 | link:https://github.com/openshift/runbooks/blob/master/alerts/openshift-virtualization-operator/KubeMacPoolDuplicateMacsFound.md[Runbook]
+| -
+
+| VirtualMachineInstanceHasEphemeralHotplugVolume
+| link:https://github.com/openshift/runbooks/blob/master/alerts/openshift-virtualization-operator/VirtualMachineInstanceHasEphemeralHotplugVolume.md[Runbook]
 | -
 
 | KubeVirtComponentExceedsRequestedCPU

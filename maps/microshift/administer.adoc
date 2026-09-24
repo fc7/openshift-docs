@@ -1,0 +1,25 @@
+:_mod-docs-content-type: MAP
+
+= Administer
+
+//Commenting this out because it seems to be a gap and doesn't have any actual planning content.
+//include::jobs/plan-to-back-up-and-restore-microshift-data.adoc[leveloffset=+1]
+
+include::jobs/back-up-and-restore-microshift-data.adoc[leveloffset=+1]
+
+//This also seems like a duplicate/job gap
+//include::jobs/understand-auto-recovery.adoc[leveloffset=+1]
+
+include::jobs/automate-data-recovery.adoc[leveloffset=+1]
+
+include::jobs/check-the-installed-version.adoc[leveloffset=+1]
+
+include::jobs/check-audit-logs.adoc[leveloffset=+1]
+
+include::jobs/manage-responsive-restarts-and-security-certificates.adoc[leveloffset=+1]
+
+include::jobs/understand-remote-health-monitoring.adoc[leveloffset=+1]
+
+include::jobs/use-sos-reports.adoc[leveloffset=+1]
+
+include::jobs/get-node-id.adoc[leveloffset=+1]

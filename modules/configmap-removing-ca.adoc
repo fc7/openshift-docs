@@ -1,10 +1,11 @@
 // Module included in the following assemblies:
 //
 // * builds/setting-up-trusted-ca
+// * networking/ovn_kubernetes_network_provider/configuring-cluster-wide-proxy.adoc
 
 :_mod-docs-content-type: PROCEDURE
 [id="configmap-removing-ca_{context}"]
-= Removing certificate authorities on a {product-title} cluster
+= Remove certificate authorities on a {product-title} cluster
 
 [role="_abstract"]
 You can remove certificate authorities (CA) from your cluster with the ROSA CLI, `rosa`.

@@ -1,0 +1,5 @@
+:_mod-docs-content-type: MAP
+
+= What's new
+
+include::hcm-jobs/rosa-hcp-whats-new.adoc[leveloffset=+1]

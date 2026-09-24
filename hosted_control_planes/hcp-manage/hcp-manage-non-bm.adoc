@@ -1,12 +1,13 @@
 :_mod-docs-content-type: ASSEMBLY
-[id="hcp-manage-non-bm"]
 include::_attributes/common-attributes.adoc[]
+[id="hcp-manage-non-bm"]
 = Managing {hcp} on non-bare-metal agent machines
 :context: hcp-manage-non-bm
 
 toc::[]
 
-After you deploy {hcp} on non-bare-metal agent machines, you can manage a hosted cluster by completing the following tasks.
+[role="_abstract"]
+After you deploy {hcp} on non-bare-metal agent machines, you can manage a hosted cluster.
 
 include::modules/hcp-bm-access.adoc[leveloffset=+1]
 
@@ -21,7 +22,7 @@ include::modules/hcp-bm-autoscale-disable.adoc[leveloffset=+2]
 [role="_additional-resources"]
 .Additional resources
 
-* xref:../../hosted_control_planes/hcp-troubleshooting.adoc#scale-down-data-plane_hcp-troubleshooting[Scaling down the data plane to zero]
+* xref:../../hosted_control_planes/hcp-machine-config.adoc#scale-down-data-plane_hcp-machine-config[Scaling down the data plane to zero]
 
 * xref:../../hosted_control_planes/hcp-machine-config.adoc#scale-up-down-autoscaler-hcp_hcp-machine-config[Scaling up and down workloads in a hosted cluster]
 

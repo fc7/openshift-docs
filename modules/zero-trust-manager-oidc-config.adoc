@@ -5,7 +5,7 @@
 :_mod-docs-content-type: PROCEDURE
 [id="zero-trust-manager-oidc-config_{context}"]
 
-= Deploying the SPIRE OpenID Connect Discovery Provider
+= Deploy the SPIRE OpenID Connect Discovery Provider
 
 [role="_abstract"]
 Deploy the SPIRE OpenID Connect (OIDC) Discovery Provider by configuring the `SpireOIDCDiscoveryProvider` CR. This allows you to define the trust domain and JSON web token (JWT) issuer for your cluster.
@@ -25,7 +25,7 @@ Deploy the SPIRE OpenID Connect (OIDC) Discovery Provider by configuring the `Sp
 .Example `SpireOIDCDiscoveryProvider` YAML
 [source,yaml]
 ----
-aapiVersion: operator.openshift.io/v1alpha1
+apiVersion: operator.openshift.io/v1alpha1
 kind: SpireOIDCDiscoveryProvider
 metadata:
  name: cluster

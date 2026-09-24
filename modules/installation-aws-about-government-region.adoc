@@ -21,18 +21,21 @@ ifdef::aws-secret[]
 
 endif::aws-secret[]
 
+[role="_abstract"]
 ifdef::aws-gov[]
-{product-title} supports deploying a cluster to an link:https://aws.amazon.com/govcloud-us[AWS GovCloud (US)] region.
-endif::aws-gov[]
+{product-title} supports deploying a cluster to an AWS GovCloud (US) region.
 
-ifdef::aws-gov[]
 The following AWS GovCloud partitions are supported:
 
 * `us-gov-east-1`
 * `us-gov-west-1`
+
+See "AWS GovCloud (US)" for more information.
 endif::aws-gov[]
 
 ifdef::aws-secret[]
+{product-title} supports deploying a cluster to an AWS Secret Cloud region.
+
 The following AWS secret partitions are supported:
 
 * `us-isob-east-1` (SC2S)
@@ -46,6 +49,13 @@ see the _Cluster Network Operator configuration object_ section in _Installing
 a cluster on AWS with network customizations_
 ====
 endif::aws-secret[]
+
+ifdef::aws-gov[]
+[role="_additional-resources"]
+.Additional resources
+
+* link:https://aws.amazon.com/govcloud-us[AWS GovCloud (US) ({aws-first} documentation)]
+endif::aws-gov[]
 
 ifeval::["{context}" == "installing-aws-government-region"]
 :!aws-gov:

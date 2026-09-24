@@ -2,9 +2,9 @@
 //
 // * hardware_enablement/kmm-kernel-module-management.adoc
 
-:_mod-docs-content-type: PROCEDURE
+:_mod-docs-content-type: CONCEPT
 [id="kmm-must-gather-tool_{context}"]
 = Using the must-gather tool
 
-The `oc adm must-gather` command is the preferred way to collect a support bundle and provide debugging information to Red Hat
-Support. Collect specific information by running the command with the appropriate arguments as described in the following sections.
+[role="_abstract"]
+To collect Kernel Module Management debugging data for Red{nbsp}Hat Support on {product-title}, you can run the `oc adm must-gather` command with KMM-specific arguments.

@@ -4,7 +4,7 @@
 
 :_mod-docs-content-type: PROCEDURE
 [id="understanding-file-integrity-custom-resource_{context}"]
-=  Creating the FileIntegrity custom resource
+=  Create the FileIntegrity custom resource
 
 [role="_abstract"]
 An instance of a `FileIntegrity` custom resource (CR) represents a set of continuous file integrity scans for one or more nodes.
@@ -20,7 +20,6 @@ For all-in-one control plane and worker nodes, separate `FileIntegrity` CRs that
 
 . Create the following example `FileIntegrity` CR named `worker-fileintegrity.yaml` to enable scans on worker nodes:
 +
-.Example FileIntegrity CR
 [source,yaml]
 ----
 apiVersion: fileintegrity.openshift.io/v1alpha1
@@ -77,7 +76,6 @@ $ oc get fileintegrities -n openshift-file-integrity
 ----
 +
 .Example output
-+
 [source,terminal]
 ----
 NAME                   AGE

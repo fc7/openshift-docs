@@ -39,6 +39,10 @@ endif::openshift-rosa,openshift-dedicated,openshift-rosa-hcp[]
 // * Users
 // * Alerts and notifications
 
+ifndef::openshift-rosa,openshift-dedicated,openshift-rosa-hcp,openshift-origin[]
+include::modules/about-self-service-tsr.adoc[leveloffset=+1]
+endif::openshift-rosa,openshift-dedicated,openshift-rosa-hcp,openshift-origin[]
+
 [role="_additional-resources"]
 [id="additional-resources_{context}"]
 == Additional resources

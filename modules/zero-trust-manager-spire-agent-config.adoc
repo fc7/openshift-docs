@@ -4,7 +4,7 @@
 
 :_mod-docs-content-type: PROCEDURE
 [id="zero-trust-manager-spire-agent-config_{context}"]
-= Deploying the SPIRE Agent
+= Deploy the SPIRE Agent
 
 [role="_abstract"]
 Use the `SpireAgent` custom resource to configure the SPIRE Agent `DaemonSet` on your nodes. This defines how the agent verifies workloads and manages identity attestation across your {product-title} cluster.
@@ -82,7 +82,7 @@ $ oc apply -f SpireAgent.yaml
 +
 [source,terminal]
 ----
-$ oc get daemonset -l app.kubernetes.io/name=agent -n zero-trust-workload-identity-manager
+$ oc get daemonset -l app.kubernetes.io/name=spire-agent -n zero-trust-workload-identity-manager
 ----
 +
 .Example output
@@ -96,7 +96,7 @@ spire-agent   3         3         3       3            3           <none>       
 +
 [source,terminal]
 ----
-$ oc get po -l app.kubernetes.io/name=agent -n zero-trust-workload-identity-manager
+$ oc get po -l app.kubernetes.io/name=spire-agent -n zero-trust-workload-identity-manager
 ----
 +
 .Example output

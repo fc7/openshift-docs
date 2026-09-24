@@ -4,14 +4,14 @@
 
 :_mod-docs-content-type: PROCEDURE
 [id="nodes-cluster-resource-levels-job_{context}"]
-= Running the OpenShift Cluster Capacity Tool as a job inside a pod
+= Run the OpenShift Cluster Capacity Tool as a job inside a pod
 
 [role="_abstract"]
 You can run the OpenShift Cluster Capacity Tool as a job inside of a pod by using a `ConfigMap` object. This allows you to run the tool multiple times without needing user intervention.
 
 .Prerequisites
 
-* Download and install the OpenShift Cluster Capacity Tool from the `cluster-capacity` repository. See the link in the "Additional resources" section.
+* Download and install the OpenShift Cluster Capacity Tool from the `cluster-capacity` repository.
 
 .Procedure
 
@@ -70,7 +70,7 @@ $ oc adm policy add-cluster-role-to-user cluster-capacity-role \
 +
 where:
 
-<namespace>:: Specifies the namespace where the pod is located.
+`<namespace>`:: Specifies the namespace where the pod is located.
 
 . Define and create the pod spec:
 
@@ -170,6 +170,7 @@ spec:
           configMap:
             name: cluster-capacity-configmap
 ----
++
 where:
 
 `spec.template.spec.containers.env`:: Specifies a required environment variable that indicates the Cluster Capacity Tool is running inside a cluster as a pod.

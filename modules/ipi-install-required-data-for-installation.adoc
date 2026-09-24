@@ -6,7 +6,10 @@
 [id="required-data-for-installation_{context}"]
 = Required data for installation
 
-Prior to the installation of the {product-title} cluster, gather the following information from all cluster nodes:
+[role="_abstract"]
+Before you deploy {product-title}, collect the essential information required for your environment. 
+
+Gather the following information from all cluster nodes:
 
 * Out-of-band management IP
 ** Examples
@@ -14,11 +17,9 @@ Prior to the installation of the {product-title} cluster, gather the following i
 *** HP (iLO) IP
 *** Fujitsu (iRMC) IP
 
-.When using the `provisioning` network
+* When using the `provisioning` network
+** NIC (`provisioning`) MAC address
+** NIC (`baremetal`) MAC address
 
-* NIC (`provisioning`) MAC address
-* NIC (`baremetal`) MAC address
-
-.When omitting the `provisioning` network
-
-* NIC (`baremetal`) MAC address
+* When omitting the `provisioning` network
+** NIC (`baremetal`) MAC address

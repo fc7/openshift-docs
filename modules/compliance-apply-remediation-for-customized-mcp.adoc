@@ -1,7 +1,8 @@
 :_mod-docs-content-type: PROCEDURE
 [id="compliance-operator-apply-remediation-for-customized-mcp"]
-= Applying remediation when using customized machine config pools
+= Apply remediation when using customized machine config pools
 
+[role="_abstract"]
 When you create a custom `MachineConfigPool`, add a label to the `MachineConfigPool` so that `machineConfigPoolSelector` present in the `KubeletConfig` can match the label with `MachineConfigPool`.
 
 [IMPORTANT]
@@ -19,7 +20,6 @@ $ oc get nodes -n openshift-compliance
 ----
 +
 .Example output
-+
 [source,terminal]
 ----
 NAME                                       STATUS  ROLES  AGE    VERSION
@@ -40,7 +40,6 @@ node-role.kubernetes.io/<machine_config_pool_name>=
 ----
 +
 .Example output
-+
 [source,terminal]
 ----
 node/ip-10-0-166-81.us-east-2.compute.internal labeled
@@ -55,7 +54,7 @@ kind: MachineConfigPool
 metadata:
   name: <machine_config_pool_name>
   labels:
-    pools.operator.machineconfiguration.openshift.io/<machine_config_pool_name>: '' <1>
+    pools.operator.machineconfiguration.openshift.io/<machine_config_pool_name>: ''
 spec:
   machineConfigSelector:
   matchExpressions:
@@ -64,7 +63,10 @@ spec:
   matchLabels:
     node-role.kubernetes.io/<machine_config_pool_name>: ""
 ----
-<1> The `labels` field defines label name to add for Machine config pool(MCP).
++
+where:
+
+`metadata.labels.pools.operator.machineconfiguration.openshift.io/<machine_config_pool_name>`:: The `labels` field defines the label name to add for the machine config pool (MCP).
 
 . Verify MCP created successfully.
 +

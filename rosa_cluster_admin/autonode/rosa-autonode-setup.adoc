@@ -1,0 +1,27 @@
+:_mod-docs-content-type: ASSEMBLY
+include::_attributes/attributes-openshift-dedicated.adoc[]
+[id="rosa-autonode-setup"]
+= Set up the {autonode}
+:context: rosa-autonode-setup
+
+toc::[]
+
+[role="_abstract"]
+Set up and enable the {autonode} on your {product-title} cluster by configuring the required IAM roles, tagging policies, and cluster settings.
+
+include::modules/rosa-nodes-autonode-managing-setup-prerequisites.adoc[leveloffset=+1]
+
+include::modules/rosa-nodes-autonode-managing-set-env-vars.adoc[leveloffset=+1]
+
+include::modules/rosa-nodes-autonode-managing-iam-setup.adoc[leveloffset=+1]
+
+include::modules/rosa-nodes-autonode-managing-enable-cli.adoc[leveloffset=+1]
+
+include::modules/rosa-nodes-autonode-managing-enable-ui.adoc[leveloffset=+1]
+
+[role="_additional-resources"]
+== Additional resources
+
+* link:https://aws.amazon.com/blogs/containers/using-amazon-ec2-spot-instances-with-karpenter/[Using Amazon EC2 Spot Instances with Karpenter]
+* xref:../../nodes/nodes/nodes-node-tuning-operator.adoc#rosa-node-tuning-autonode_nodes-node-tuning-operator[Configure node tuning for {autonode} nodes]
+

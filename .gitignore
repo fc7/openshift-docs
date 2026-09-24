@@ -19,6 +19,9 @@ commercial_package
 .vale/
 !.vale/templates
 !.vale/config/vocabularies
+build/
+analysis/
+*.csv
 
 # Agent workspace
 .agent_workspace/

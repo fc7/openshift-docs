@@ -1,0 +1,78 @@
+// Module included in the following assemblies:
+//
+// * cloud_experts_tutorials/cloud-experts-deploying-application/cloud-experts-deploying-application-prerequisites.adoc
+// * rosa_getting_started/rosa-quickstart-guide-ui.adoc
+// * rosa_install_access_delete_clusters/rosa-sts-creating-a-cluster-quickly.adoc
+
+:_mod-docs-content-type: PROCEDURE
+[id="rosa-sts-associating-your-aws-account_{context}"]
+= Associate your AWS account with your Red{nbsp}Hat organization
+
+[role="_abstract"]
+Before using {cluster-manager-first} on the {hybrid-console-url} to create {product-title} clusters that use the AWS Security Token Service (STS), create an {cluster-manager} IAM role and link it to your Red{nbsp}Hat organization. Then, create a user IAM role and link it to your Red{nbsp}Hat user account in the same Red{nbsp}Hat organization.
+
+.Prerequisites
+
+* You have completed the AWS prerequisites for {product-title} with STS.
+* You have available AWS service quotas.
+* You have enabled the {product-title} service in the AWS Console.
+* You have installed and configured the latest {rosa-cli} on your installation host.
++
+[NOTE]
+====
+To successfully install {product-title} clusters, use the latest version of the {rosa-cli}.
+====
+* You have logged in to your Red{nbsp}Hat account by using the {rosa-cli}.
+* You have organization administrator privileges in your Red{nbsp}Hat organization.
+
+.Procedure
+
+. Create an {cluster-manager} role and link it to your Red{nbsp}Hat organization:
++
+[NOTE]
+====
+To enable automatic deployment of the cluster-specific Operator roles and the OpenID Connect (OIDC) provider using the {cluster-manager} {hybrid-console-second}, you must apply the administrative privileges to the role by choosing the _Admin OCM role_ command in the *Accounts and roles* step of creating a {product-title} cluster. For more information about the basic and administrative privileges for the {cluster-manager} role, see _Understanding AWS account association_.
+====
++
+[NOTE]
+====
+If you choose the _Basic OCM role_ command in the *Accounts and roles* step of creating a {product-title} cluster in the {cluster-manager} {hybrid-console-second}, you must deploy a {product-title} cluster using manual mode. You will be prompted to configure the cluster-specific Operator roles and the OpenID Connect (OIDC) provider in a later step.
+====
++
+[source,terminal]
+----
+$ rosa create ocm-role
+----
++
+Select the default values at the prompts to quickly create and link the role.
++
+. Create a user role and link it to your Red{nbsp}Hat user account:
++
+[source,terminal]
+----
+$ rosa create user-role
+----
++
+Select the default values at the prompts to quickly create and link the role.
++
+[NOTE]
+====
+The Red{nbsp}Hat user account must exist in the Red{nbsp}Hat organization that is linked to your {cluster-manager} role.
+====
+
+.Verification
+
+* Verify that the OCM role and user role were created:
++
+[source,terminal]
+----
+$ rosa list ocm-role
+$ rosa list user-role
+----
+
+[role="_additional-resources"]
+.Additional resources
+
+* link:https://docs.openshift.com/rosa/rosa_install_access_delete_clusters/rosa-sts-aws-prereqs.html[AWS prerequisites for ROSA with STS]
+* link:https://docs.openshift.com/rosa/rosa_architecture/rosa-understanding.html[Understanding ROSA]
+* link:https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html[IAM roles in AWS]

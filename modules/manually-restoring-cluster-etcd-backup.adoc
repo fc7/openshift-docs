@@ -7,7 +7,10 @@
 [id="manually-restoring-cluster-etcd-backup_{context}"]
 = Restoring a cluster manually from an etcd backup
 
-The restore procedure described in the section "Restoring to a previous cluster state": 
+[role="_abstract"]
+Manually restore your cluster from an etcd backup by starting a three-member etcd cluster on existing control plane nodes, without re-creating nodes as required by the standard restore procedure.
+
+The restore procedure described in the section "Restoring to an earlier cluster state": 
 
 * Requires the complete recreation of 2 control plane nodes, which might be a complex procedure for clusters installed with the UPI installation method, since an UPI installation does not create any `Machine` or `ControlPlaneMachineset` for the control plane nodes.
 
@@ -18,7 +21,7 @@ In contrast, this procedure:
 * Does not require recreating any control plane nodes.
 * Directly starts a three-member etcd cluster.
 
-If the cluster uses a `MachineSet` for the control plane, it is suggested to use the "Restoring to a previous cluster state" for a simpler etcd recovery procedure.
+If the cluster uses a `MachineSet` for the control plane, it is suggested to use the "Restoring to an earlier cluster state" for a simpler etcd recovery procedure.
 
 When you restore your cluster, you must use an etcd backup that was taken from the same z-stream release. For example, an {product-title} 4.7.2 cluster must use an etcd backup that was taken from 4.7.2.
 
@@ -182,9 +185,8 @@ The port used must be 2380 and not 2379. The port 2379 is used for etcd database
 .Example output
 [source,terminal,subs="attributes+"]
 ----
-<ETCD_NAME_0>=<ETCD_NODE_PEER_URL_0>,<ETCD_NAME_1>=<ETCD_NODE_PEER_URL_1>,<ETCD_NAME_2>=<ETCD_NODE_PEER_URL_2> <1>
+<ETCD_NAME_0>=<ETCD_NODE_PEER_URL_0>,<ETCD_NAME_1>=<ETCD_NODE_PEER_URL_1>,<ETCD_NAME_2>=<ETCD_NODE_PEER_URL_2>
 ----
-<1> Specifies the `ETCD_NODE_PEER_URL` values from each control plane host.
 +
 The `<ETCD_INITIAL_CLUSTER>` value remains same across all control plane hosts. The same value is required in the next steps on every control plane host.
 

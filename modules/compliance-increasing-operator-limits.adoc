@@ -6,13 +6,14 @@
 [id="compliance-increasing-operator-limits_{context}"]
 = Increasing Compliance Operator resource limits
 
-In some cases, the Compliance Operator might require more memory than the default limits allow. The best way to mitigate this issue is to set custom resource limits.
+[role="_abstract"]
+In some cases, the Compliance Operator might require more memory than the default limits allow. You can mitigate this issue by setting custom resource limits.
 
 To increase the default memory and CPU limits of scanner pods, see _`ScanSetting` Custom resource_.
 
 .Procedure
 
-. To increase the Operator's memory limits to 500 Mi, create the following patch file named `co-memlimit-patch.yaml`:
+. To increase the Operator memory limits to 500 Mi, create the following patch file named `co-memlimit-patch.yaml`:
 +
 [source,yaml]
 ----

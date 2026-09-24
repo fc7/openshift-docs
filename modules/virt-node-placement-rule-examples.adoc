@@ -6,14 +6,8 @@
 [id="virt-node-placement-rule-examples_{context}"]
 = Node placement rule examples
 
-ifndef::openshift-rosa,openshift-dedicated[]
 [role="_abstract"]
-You can specify node placement rules for a {VirtProductName} component by editing a `Subscription`, `HyperConverged`, or `HostPathProvisioner` object.
-endif::openshift-rosa,openshift-dedicated[]
-ifdef::openshift-rosa,openshift-dedicated[]
-[role="_abstract"]
-You can specify node placement rules for a {VirtProductName} component by editing a `HyperConverged` or `HostPathProvisioner` object.
-endif::openshift-rosa,openshift-dedicated[]
+Examples of node placement rules for different objects that determine where {VirtProductName} components are deployed.
 
 ifndef::openshift-rosa,openshift-dedicated[]
 [id="subscription-object-node-placement-rules_{context}"]
@@ -46,6 +40,19 @@ spec:
 ----
 
 OLM deploys the {VirtProductName} Operators on nodes labeled `example.io/example-infra-key = example-infra-value`.
+
+The following pods are affected by the `Subscription` object node placement rules. These pods are created when the {VirtProductName} Operator is first installed, even without an HyperConverged custom resource (CR):
+
+* `aaq-operator`
+* `cdi-operator`
+* `cluster-network-addons-operator`
+* `hco-operator`
+* `hco-webhook`
+* `hostpath-provisioner-operator`
+* `hyperconverged-cluster-cli-download`
+* `kubevirt-migration-operator`
+* `ssp-operator`
+* `virt-operator`
 
 Example `Subscription` object with `tolerations` rule:
 
@@ -168,6 +175,22 @@ spec:
 ----
 
 Nodes reserved for {VirtProductName} components are labeled with the `key = virtualization:NoSchedule` taint. Only pods with matching tolerations are scheduled on reserved nodes.
+
+The following pods are affected by the `HyperConverged` object node placement rules. These pods are created when an HyperConverged CR is deployed:
+
+* `cdi-apiserver`
+* `cdi-deployment`
+* `cdi-uploadproxy`
+* `kubemacpool-cert-manager`
+* `kubemacpool-mac-controller-manager`
+* `kubevirt-apiserver-proxy`
+* `kubevirt-console-plugin`
+* `kubevirt-ipam-controller-manager`
+* `kubevirt-migration-controller`
+* `virt-api`
+* `virt-controller`
+* `virt-exportproxy`
+* `virt-template-validator`
 
 [id="hostpathprovisioner-object-node-placement-rules_{context}"]
 == HostPathProvisioner object node placement rule example

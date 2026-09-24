@@ -19,7 +19,7 @@ endif::[]
 
 :_mod-docs-content-type: PROCEDURE
 [id="nw-cluster-mtu-finalizing-migration_{context}"]
-= Finalizing the MTU migration
+= Finalize the MTU migration
 
 [role="_abstract"]
 Finalize the MTU migration to apply the new maximum transmission unit (MTU) settings to the OVN-Kubernetes network plugin. This updates the cluster configuration and triggers a rolling reboot of the nodes to complete the process.
@@ -30,7 +30,6 @@ Finalize the MTU migration to apply the new maximum transmission unit (MTU) sett
 . To finalize the MTU migration, enter the following command for the OVN-Kubernetes network plugin:
 +
 [source,terminal]
-+
 ----
 $ oc patch Network.operator.openshift.io cluster --type=merge --patch \
   '{"spec": { "migration": null, "defaultNetwork":{ "ovnKubernetesConfig": { "mtu": <mtu> }}}}'

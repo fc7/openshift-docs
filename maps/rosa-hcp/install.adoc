@@ -1,0 +1,7 @@
+:_mod-docs-content-type: MAP
+
+= Install
+
+include::hcm-jobs/rosa-hcp-create-a-rosa-hcp-cluster.adoc[leveloffset=+1]
+
+include::hcm-jobs/rosa-hcp-create-a-rosa-hcp-cluster-in-a-shared-vpc.adoc[leveloffset=+1]

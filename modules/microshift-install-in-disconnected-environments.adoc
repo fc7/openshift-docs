@@ -1,0 +1,10 @@
+// Module included in the following assemblies:
+//
+// * maps/jobs/install-in-disconnected-environments.adoc
+
+:_mod-docs-content-type: CONCEPT
+[id="microshift-install-in-disconnected-environments_{context}"]
+= Install in disconnected environments
+
+[role="_abstract"]
+If your edge nodes operate in a disconnected or restricted network, you can mirror the {microshift-short} container images into a private registry so that you can install the platform without internet access.

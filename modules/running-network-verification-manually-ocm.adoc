@@ -1,16 +1,14 @@
 // Module included in the following assemblies:
 //
-// * networking/network-verification.adoc
+// * networking/network_security/network-verification.adoc
 
 :_mod-docs-content-type: PROCEDURE
-ifdef::openshift-dedicated[]
 [id="running-network-verification-manually-ocm_{context}"]
+ifdef::openshift-dedicated[]
 = Running the network verification manually
 
 endif::openshift-dedicated[]
 ifdef::openshift-rosa[]
-
-[id="running-network-verification-manually-ocm_{context}"]
 = Running the network verification manually using {cluster-manager}
 
 endif::openshift-rosa[]

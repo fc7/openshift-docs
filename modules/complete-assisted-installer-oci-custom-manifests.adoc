@@ -6,7 +6,10 @@
 [id="adding-custom-manifests-oci_{context}"]
 = Adding custom manifests
 
-Add the mandatory custom manifests provided by Oracle. For details, see link:https://github.com/dfoster-oracle/oci-openshift/blob/v1.0.0-release-preview/custom_manifests/README.md[Custom Manifests (Oracle documentation).]
+[role="_abstract"]
+Add the mandatory custom manifests provided by Oracle.
+
+For details, see link:https://github.com/dfoster-oracle/oci-openshift/blob/v1.0.0-release-preview/custom_manifests/README.md[Custom Manifests (Oracle documentation).]
 
 .Prerequisites
 
@@ -27,5 +30,5 @@ Add the mandatory custom manifests provided by Oracle. For details, see link:htt
 . Click *Next* to save the custom manifest.
 
 . From the *Review and create* page, click *Install cluster* to create your {product-title} cluster on {oci-distributed-no-rt}.
-
++
 After the cluster installation and initialization operations, the {ai-full} indicates the completion of the cluster installation operation. For more information, see "Completing the installation" section in the {ai-full} for {product-title} document.

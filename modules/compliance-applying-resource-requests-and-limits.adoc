@@ -4,7 +4,10 @@
 
 :_mod-docs-content-type: CONCEPT
 [id="compliance-applying-resource-requests-and-limits_{context}"]
-= Applying resource requests and limits
+= Apply resource requests and limits
+
+[role="_abstract"]
+You can configure a container’s requests and limits for memory and CPU to define how much CPU time and memory that the container can use.
 
 When the kubelet starts a container as part of a Pod, the kubelet passes that container's requests and limits for memory and CPU to the container runtime. In Linux, the container runtime configures the kernel cgroups that apply and enforce the limits you defined.
 
@@ -18,5 +21,5 @@ The kubelet tracks `tmpfs` `emptyDir` volumes as container memory is used, rathe
 
 [IMPORTANT]
 ====
-A container may not exceed its CPU limit for extended periods. Container run times do not stop Pods or containers for excessive CPU usage. To determine whether a container cannot be scheduled or is being killed due to resource limits, see _Troubleshooting the Compliance Operator_.
+A container might not exceed its CPU limit for extended periods. Container run times do not stop Pods or containers for excessive CPU usage. To determine whether a container cannot be scheduled or is being killed due to resource limits, see _Troubleshooting the Compliance Operator_.
 ====

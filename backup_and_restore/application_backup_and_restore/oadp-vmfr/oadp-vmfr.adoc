@@ -8,7 +8,7 @@ include::_attributes/common-attributes.adoc[]
 toc::[]
 
 [role="_abstract"]
-Use {oadp-short} virtual machine file restore (VMFR) to recover individual files from `kubevirt` VM backups without restoring the entire VM. You can browse, compare, and download files from multiple backups simultaneously.
+Recover individual files from virtual machine backups without restoring the entire VM. Browse, compare, and download files from multiple backups simultaneously through a web browser or SSH-based tools.
 
 include::modules/oadp-vmfr-overview.adoc[leveloffset=+1]
 

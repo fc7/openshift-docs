@@ -6,7 +6,8 @@
 [id="kmm-hub-running-kmm-on-the-spoke_{context}"]
 = Running KMM on the spoke
 
-After installing Kernel Module Management (KMM) on the spoke, no further action is required. Create a `ManagedClusterModule` object from the hub to deploy kernel modules on spoke clusters.
+[role="_abstract"]
+To run Kernel Module Management (KMM) on spoke clusters in {product-title}, you can install it with a {rh-rhacm} `Policy` object. After installation, create a `ManagedClusterModule` object from the hub to deploy kernel modules.
 
 You can install KMM on the spokes cluster through a RHACM `Policy` object. In addition to installing KMM from the software catalog and running it in a lightweight spoke mode, the `Policy` configures additional RBAC required for the RHACM agent to be able to manage `Module` resources.
 
@@ -60,7 +61,7 @@ spec:
                 channel: stable
                 config:
                   env:
-                    - name: KMM_MANAGED <1>
+                    - name: KMM_MANAGED
                       value: "1"
                 installPlanApproval: Automatic
                 name: kernel-module-management
@@ -96,7 +97,7 @@ kind: PlacementRule
 metadata:
   name: all-managed-clusters
 spec:
-  clusterSelector: <2>
+  clusterSelector:
     matchExpressions: []
 ---
 apiVersion: policy.open-cluster-management.io/v1
@@ -112,5 +113,8 @@ subjects:
     kind: Policy
     name: install-kmm
 ----
-<1> This environment variable is required when running KMM on a spoke cluster.
-<2> The `spec.clusterSelector` field can be customized to target select clusters only.
++
+where:
++
+`spec.policy-templates.objectDefinition.spec.object-templates.objectDefinition.spec.config.env.name`:: Specifies the environment variable name on the `Subscription` object entry. This variable is required when running KMM on a spoke cluster.
+`spec.clusterSelector`:: Specifies that on the `PlacementRule` object entry, this field can be customized to target select clusters only.

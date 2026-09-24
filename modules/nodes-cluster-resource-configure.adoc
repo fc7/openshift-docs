@@ -5,7 +5,7 @@
 
 :_mod-docs-content-type: PROCEDURE
 [id="nodes-cluster-resource-configure_{context}"]
-= Configuring cluster-level overcommit
+= Configure cluster-level overcommit
 
 [role="_abstract"]
 You can use the OpenShift CLI to configure the Cluster Resource Override Operator to help control overcommit in your cluster.
@@ -38,6 +38,7 @@ spec:
       limitCPUToMemoryPercent: 200
 # ...
 ----
++
 where:
 +
 --
@@ -61,6 +62,7 @@ metadata:
 
 # ...
 ----
++
 where:
 +
 --
